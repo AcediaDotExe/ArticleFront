@@ -1,46 +1,70 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Frontend for Article web service
 
-## Available Scripts
+Article web service - это веб-сервис, который позволяет пользователям создавать и редактировать статьи,
+а также комментировать их. Все статьи и комментарии хранятся в базе данных. Сервис предоставляет REST API,
+с помощью которого можно получить список статей, создать новую статью, получить/обновить/удалить статью по её ID,
+получить список комментариев к статье, создать комментарий к статье, получить/обновить/удалить комментарий по его ID.
 
-In the project directory, you can run:
+## Требования к реализации
+1. Все API должны быть документированы с помощью Swagger.
+2. Все API должны быть доступны по HTTP.
 
-### `npm start`
+## Stack for backend
+1. Kotlin (Его знает хорошо только один человек, но он знает)
+2. Spring Boot (Стандарт де-факто на рынке)
+3. Spring Data JPA (Позволяет работать с БД)
+4. PostgreSQL (Стандарт де-факто на рынке(либо MongoDB, но у нас нет необходимости в no-SQL DB))
+5. Maven (Для управления зависимостями)
+6. Docker (Для разворачивания в контейнере)
+7. Swagger (Для документации API)
+8. JUnit (Для тестирования)
+9. Mockito (Для тестирования)
+10. Flyway (Для миграций БД)
+11. IntelliJ IDEA (Стандарт де-факто на рынке)
+12. GitHub (Для хранения кода)
+13. GitHub Actions (Для деплоя)
+14. Postman (Для тестирования API)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Структура backend
+1. Article controller - отвечает за управление статьями
+2. Article service - отвечает за бизнес-логику статей
+3. Auth controller - отвечает за авторизацию
+4. Auth service - отвечает за бизнес-логику авторизации
+5. User controller - отвечает за управление пользователями
+6. User service - отвечает за бизнес-логику пользователей
+7. Article analytics controller - отвечает за аналитику статей
+8. Article analytics service - отвечает за бизнес-логику аналитики статей
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Stack for frontend
+1. React (Стандарт де-факто на рынке)
+2. Redux (Самаая популярная библиотека для управления состоянием в связке с React)
+3. TypeScript (Типизированный JavaScript)
+4. Material UI (Библиотека компонентов для React)
+5. Axios (Библиотека для работы с HTTP запросами)
+6. Jest (Библиотека для тестирования)
+7. Webpack (Сборщик проекта)
+8. Babel (Транспайлер из JSX в JS)
+9. ESLint (Линтер для JS)
+10. Prettier (Форматтер для JS)
+11. GitHub (Для хранения кода)
+12. GitHub Actions (Для деплоя)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Структура frontend
+1. Точка входа - index.js
+2. Основной компонент React - App.js
+3. Компоненты:
+    1. Компонент для работы с пользователями
+        1. Компонент для авторизации - AuthComponent
+    2. Компонент для работы со статьями
+        1. Компонент для отображения списка статей - ArticleListComponent
+        2. Компонент для отображения одной статьи - ArticleComponent
+            1. Сбор статистики по статье - StatisticAggregatorComponent
+        3. Компонент для редактирования статьи - EditArticleComponent
+            1. Компонент для работы с изображениями - ImageComponent
+        4. Компонент для реакций к статье - ReactionComponent
+    3. Компоненты для работы с аналитикой
+        1. Компонент для отображения статистики - StatisticComponent
+        2. Компонент для отображения графика - ChartComponent
