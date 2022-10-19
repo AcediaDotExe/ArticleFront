@@ -1,8 +1,10 @@
-const path = require('path');
+import * as path from 'path';
+import * as webpack from 'webpack';
+import * as webpackDevServer from 'webpack-dev-server';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
-module.exports = {
+const config: webpack.Configuration = {
     mode: 'development',
     entry: {
         app: path.join(__dirname, 'src', 'index.tsx')
@@ -53,3 +55,5 @@ module.exports = {
         new CleanWebpackPlugin()
     ]
 }
+
+export default config;
