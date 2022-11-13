@@ -6,11 +6,18 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 const config: webpack.Configuration = {
     mode: 'development',
+    // mode: 'production',
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    },
     entry: {
         app: path.join(__dirname, 'src', 'index.tsx')
     },
     devServer: {
         port: 3000,
+        historyApiFallback: true
     },
     target: 'web',
     resolve: {
@@ -28,7 +35,7 @@ const config: webpack.Configuration = {
                 enforce: "pre"
             },
             {
-                test: /\.tsx$/,
+                test: /\.(tsx|ts)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
@@ -45,8 +52,10 @@ const config: webpack.Configuration = {
         ],
     },
     output: {
+        // filename: 'bundle.js',
         filename: '[name].[fullhash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: 'auto'
     },
     plugins: [
         new HtmlWebpackPlugin({

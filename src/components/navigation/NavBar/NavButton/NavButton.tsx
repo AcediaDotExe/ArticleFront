@@ -1,13 +1,15 @@
 import React, {FC} from 'react'
-import {SvgIconComponent} from "@mui/icons-material";
+import {Link} from "react-router-dom";
 
 type Props = {
     link: string;
-    icon: SvgIconComponent;
+    children: JSX.Element | JSX.Element[] | string | string[];
 }
 
-const NavButton: FC<Props> = ({link, icon}) => {
-    return <div></div>
+const NavButton: FC<Props> = ({link, children}) => {
+    return <Link to={link} style={{ color: "white" }}>
+        {children}
+    </Link>
 }
 
 export default NavButton
