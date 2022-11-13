@@ -1,16 +1,27 @@
 import React from 'react'
 
-import {AppBar, AppBarProps, Button, CssBaseline, Grid, styled, Toolbar, Typography} from '@mui/material'
-import NavLeftPart from "./NavLeftPart";
-import NavRightPart from "./NavRightPart";
-import {useTypedSelector} from "../../../hooks/useTypedSelector";
-import {drawerWidth} from "../../../themes/themes";
+import {
+    AppBar,
+    AppBarProps,
+    Button,
+    CssBaseline,
+    Grid,
+    styled,
+    Toolbar,
+    Typography,
+} from '@mui/material'
+import NavLeftPart from './NavLeftPart'
+import NavRightPart from './NavRightPart'
+import { useTypedSelector } from '../../../hooks/useTypedSelector'
+import { drawerWidth } from '../../../themes/themes'
 
 const NavBar = () => {
-    const isSidebarOpen: boolean = useTypedSelector(state => state.sidebar.isSidebarOpen)
+    const isSidebarOpen: boolean = useTypedSelector(
+        (state) => state.sidebar.isSidebarOpen
+    )
 
     interface StyledAppBarProps extends AppBarProps {
-        open?: boolean;
+        open?: boolean
     }
 
     const StyledAppBar = styled(AppBar, {
@@ -28,27 +39,30 @@ const NavBar = () => {
                 duration: theme.transitions.duration.enteringScreen,
             }),
         }),
-    }));
+    }))
 
-    return <>
-        <CssBaseline/>
-            <StyledAppBar position="static" sx={{ bgcolor: ""}} open={isSidebarOpen}>
+    return (
+        <>
+            <CssBaseline />
+            <StyledAppBar
+                position="static"
+                color={'primary'}
+                open={isSidebarOpen}
+            >
                 <Toolbar>
                     <Grid
                         container
                         direction="row"
                         justifyContent="space-between"
-                        alignItems="center">
-                        <Grid item xs={4}>
-                            <NavLeftPart/>
-                        </Grid>
-                        <Grid item xs={1.7}>
-                            <NavRightPart/>
-                    </Grid>
+                        alignItems="center"
+                    >
+                        <NavLeftPart />
+                        <NavRightPart />
                     </Grid>
                 </Toolbar>
             </StyledAppBar>
         </>
+    )
 }
 
 export default NavBar

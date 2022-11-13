@@ -1,24 +1,18 @@
 import React from 'react'
 import Routing from './pages/routing'
-import {createTheme, PaletteMode, ThemeProvider} from "@mui/material";
-import {store} from "./store";
-import {Provider} from "react-redux";
-import { StyledEngineProvider } from '@mui/material/styles';
+import { store } from './store'
+import { Provider } from 'react-redux'
+import ThemeProviderWrapper from './components/themes/ThemeProviderWrapper'
 
 function App() {
-
-
     return (
-        <div className="App">
-            <React.StrictMode>
-                <StyledEngineProvider injectFirst>
-                    <Provider store={store}>
-                        <Routing/>
-                    </Provider>
-                </StyledEngineProvider>
-            </React.StrictMode>
-
-        </div>
+        <React.StrictMode>
+            <Provider store={store}>
+                <ThemeProviderWrapper>
+                    <Routing />
+                </ThemeProviderWrapper>
+            </Provider>
+        </React.StrictMode>
     )
 }
 
