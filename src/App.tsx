@@ -1,12 +1,23 @@
 import React from 'react'
-import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon'
 import Routing from './pages/routing'
-import Layout from './components/layout/Layout/Layout'
+import {createTheme, PaletteMode, ThemeProvider} from "@mui/material";
+import {store} from "./store";
+import {Provider} from "react-redux";
+import { StyledEngineProvider } from '@mui/material/styles';
 
 function App() {
+
+
     return (
         <div className="App">
-            <Routing />
+            <React.StrictMode>
+                <StyledEngineProvider injectFirst>
+                    <Provider store={store}>
+                        <Routing/>
+                    </Provider>
+                </StyledEngineProvider>
+            </React.StrictMode>
+
         </div>
     )
 }

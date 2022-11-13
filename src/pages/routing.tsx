@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useMemo} from 'react'
 import { Route, Routes } from 'react-router'
 import {
     AllArticles,
@@ -16,6 +16,9 @@ const Routing = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<AllArticles />} />
+                <Route path="/creating" element={<Creating />} />
+                <Route path="/my-history" element={<MyHistory />} />
+                <Route path="/my-articles" element={<MyArticles />} />
                 <Route
                     path="/article-edit:articleId"
                     element={<ArticleEdit />}
@@ -28,9 +31,6 @@ const Routing = () => {
                     path="/article-statistics:articleId"
                     element={<ArticleStatistics />}
                 />
-                <Route path="/creating" element={<Creating />} />
-                <Route path="/my-history" element={<MyHistory />} />
-                <Route path="/my-articles" element={<MyArticles />} />
             </Routes>
         </BrowserRouter>
     )
