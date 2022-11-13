@@ -1,12 +1,12 @@
 import React from 'react'
 import NavBar from '../../../navigation/NavBar/NavBar'
-import Sidebar from "../../../navigation/SideBar/Sidebar";
+import Sidebar from '../../../navigation/SideBar/Sidebar'
 
 const LayoutHeader = () => {
     return (
         <div>
             <NavBar />
-            <Sidebar/>
+            <Sidebar />
         </div>
     )
 }
