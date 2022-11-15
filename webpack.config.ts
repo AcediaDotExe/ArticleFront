@@ -17,7 +17,6 @@ const config: webpack.Configuration = {
     },
     devServer: {
         port: 3000,
-        historyApiFallback: true
     },
     target: 'web',
     resolve: {
@@ -56,14 +55,14 @@ const config: webpack.Configuration = {
         ],
     },
     output: {
-        // filename: 'bundle.js',
-        filename: '[name].[fullhash].js',
+        filename: '[name].[fullhash:8].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'auto'
+        publicPath: 'auto',
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'public', 'index.html'),
+            favicon: "./src/assets/icons/favicon.png"
         }),
         new CleanWebpackPlugin()
     ]

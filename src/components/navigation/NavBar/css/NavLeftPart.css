@@ -1,0 +1,111 @@
+.favicon{
+    height: 25px;
+    width: 25px;
+    margin-top: 4px;
+}
+
+#logo {
+    overflow: hidden;
+    position: relative;
+}
+
+#logo::before,
+#logo::after {
+    content: 'Mda';
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+#logo::before {
+    background-color: #ce93d8;
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+#logo::after {
+    content: 'Caticles';
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #ce93d8;
+}
+
+#logo:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+#logo:hover::after {
+    transform: translate3d(0, 0, 0);
+}
+
+#logo #logo-inside {
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+#logo:hover #logo-inside {
+    transform: translate3d(-200%, 0, 0);
+}
+
+#logo {
+    text-decoration: none;
+    color: #e3f2fd;
+    font-weight: 700;
+    vertical-align: top;
+}
+
+#light-logo {
+    overflow: hidden;
+    position: relative;
+}
+
+#light-logo::before,
+#light-logo::after {
+    content: 'Mda';
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+#light-logo::before {
+    background-color: #6eeeed;
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+#light-logo::after {
+    content: 'Caticles';
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #6eeeed;
+}
+
+#light-logo:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+#light-logo:hover::after {
+    transform: translate3d(0, 0, 0);
+}
+
+#light-logo #light-logo-inside {
+    transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+#light-logo:hover #light-logo-inside {
+    transform: translate3d(-200%, 0, 0);
+}
+
+#light-logo {
+    text-decoration: none;
+    color: #e3f2fd;
+    font-weight: 700;
+    vertical-align: top;
+}
