@@ -9,11 +9,11 @@ import {
     MyArticles,
     MyHistory,
 } from './index'
-import { BrowserRouter } from 'react-router-dom'
+import {BrowserRouter, HashRouter} from 'react-router-dom'
 
 const Routing = () => {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route path="/" element={<AllArticles />} />
                 <Route path="/creating" element={<Creating />} />
@@ -32,7 +32,7 @@ const Routing = () => {
                     element={<ArticleStatistics />}
                 />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
