@@ -7,11 +7,6 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const config: webpack.Configuration = {
     mode: 'development',
     // mode: 'production',
-    performance: {
-        hints: false,
-        maxEntrypointSize: 512000,
-        maxAssetSize: 512000
-    },
     entry: {
         app: path.join(__dirname, 'src', 'index.tsx')
     },
@@ -65,7 +60,12 @@ const config: webpack.Configuration = {
             favicon: "./src/assets/icons/favicon.png"
         }),
         new CleanWebpackPlugin()
-    ]
+    ],
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+    },
 }
 
 export default config;
