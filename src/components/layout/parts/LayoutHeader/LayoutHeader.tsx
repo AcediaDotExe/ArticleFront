@@ -4,10 +4,10 @@ import Sidebar from '../../../navigation/SideBar/Sidebar'
 
 const LayoutHeader = () => {
     return (
-        <div>
+        <>
             <NavBar />
             <Sidebar />
-        </div>
+        </>
     )
 }
 

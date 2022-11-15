@@ -6,10 +6,8 @@ import { SidebarActionTypes } from '../../../types/sidebar'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import { Link } from 'react-router-dom'
 import './css/NavLeftPart.css'
-import {Image} from "@mui/icons-material";
-// @ts-ignore
+
 import favicon from '/src/assets/icons/favicon.png'
-// @ts-ignore
 import faviconDark from '/src/assets/icons/favicon-dark.png'
 
 const NavLeftPart = () => {
@@ -37,7 +35,7 @@ const NavLeftPart = () => {
                             color={'info'}
                             sx={{
                                 ...(isSidebarOpen && { display: 'none' }),
-                                mr: 3
+                                mr: 3,
                             }}
                             onClick={() =>
                                 dispatch({ type: SidebarActionTypes.OPEN })
@@ -54,37 +52,51 @@ const NavLeftPart = () => {
                     >
                         {isDarkMode ? (
                             <>
-                            <img src={faviconDark} alt="Kitty" className={'favicon'} id={'logo'}/>
-                            <Typography
-                                variant="h5"
-                                noWrap
-                                component="div"
-                                className={'font-Sono'}
-                                id={'logo'}
-                                sx={{
-                                    display: { xs: 'none', sm: 'inline-block' },
-                                    ml: 1,
-                                }}
-                            >
-                                <div id={'logo-inside'}>Caticles</div>
-                            </Typography>
+                                <img
+                                    src={faviconDark}
+                                    alt="Kitty"
+                                    className={'favicon'}
+                                />
+                                <Typography
+                                    variant="h5"
+                                    noWrap
+                                    component="div"
+                                    className={'font-Sono'}
+                                    id={'logo'}
+                                    sx={{
+                                        display: {
+                                            xs: 'none',
+                                            sm: 'inline-block',
+                                        },
+                                        ml: 1,
+                                    }}
+                                >
+                                    <div id={'logo-inside'}>Caticles</div>
+                                </Typography>
                             </>
                         ) : (
                             <>
-                            <img src={favicon} alt="Dark Kitty" className={'favicon'}/>
-                            <Typography
-                                variant="h5"
-                                noWrap
-                                component="div"
-                                className={'font-Sono'}
-                                id={'light-logo'}
-                                sx={{
-                                    display: { xs: 'none', sm: 'inline-block' },
-                                    ml: 1,
-                                }}
-                            >
-                                <div id={'light-logo-inside'}>Caticles</div>
-                            </Typography>
+                                <img
+                                    src={favicon}
+                                    alt="Dark Kitty"
+                                    className={'favicon'}
+                                />
+                                <Typography
+                                    variant="h5"
+                                    noWrap
+                                    component="div"
+                                    className={'font-Sono'}
+                                    id={'light-logo'}
+                                    sx={{
+                                        display: {
+                                            xs: 'none',
+                                            sm: 'inline-block',
+                                        },
+                                        ml: 1,
+                                    }}
+                                >
+                                    <div id={'light-logo-inside'}>Caticles</div>
+                                </Typography>
                             </>
                         )}
                     </Link>

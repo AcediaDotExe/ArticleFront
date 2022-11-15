@@ -45,7 +45,7 @@ const NavBar = () => {
         <>
             <CssBaseline />
             <StyledAppBar
-                position="static"
+                position="fixed"
                 color={'primary'}
                 open={isSidebarOpen}
             >

@@ -9,7 +9,7 @@ import {
     MyArticles,
     MyHistory,
 } from './index'
-import {BrowserRouter, HashRouter} from 'react-router-dom'
+import { BrowserRouter, HashRouter } from 'react-router-dom'
 
 const Routing = () => {
     return (
