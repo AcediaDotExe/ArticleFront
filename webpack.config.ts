@@ -44,7 +44,8 @@ const config: webpack.Configuration = {
                             "@babel/preset-typescript",
                             // ['@babel/preset-env', {targets: {node: 'current'}}] // jest
                         ]
-                    }
+                    },
+
                 }
             }
         ],
