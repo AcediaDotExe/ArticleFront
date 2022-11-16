@@ -1,10 +1,9 @@
 import React, { FC } from 'react'
 import { OnlyChildProps } from '../../../../types/types'
-import { Box, Grid, Paper } from '@mui/material'
+import { Box, Grid, Paper, Theme, ThemeCssVar } from '@mui/material'
 
 const LayoutContent: FC<OnlyChildProps> = ({ children }) => {
-    // @ts-ignore
-    const styles = (theme) => ({
+    const styles = (theme: Theme) => ({
         width: '100vh',
         height: '95vh',
         display: 'flex',
