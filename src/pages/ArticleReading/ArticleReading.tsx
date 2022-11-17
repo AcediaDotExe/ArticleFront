@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../components/layout/Layout/Layout'
+import Layout from '../../components/layout/layout/Layout'
 
 const ArticleReading = () => {
     return (

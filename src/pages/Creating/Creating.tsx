@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../components/layout/Layout/Layout'
+import Layout from '../../components/layout/layout/Layout'
 import { Grid } from '@mui/material'
 
 import ArticleEditor from '../../components/editor/articleEditor/ArticleEditor'
