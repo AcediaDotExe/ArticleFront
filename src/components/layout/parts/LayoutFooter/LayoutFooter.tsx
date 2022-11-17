@@ -4,7 +4,7 @@ import { Box, Container, Link, Paper, Popover, Typography } from '@mui/material'
 const LayoutFooter = () => {
     return (
         <Paper
-            elevation={24}
+            elevation={0}
             sx={{
                 width: '100%',
                 height: '64px',

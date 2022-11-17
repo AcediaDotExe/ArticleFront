@@ -29,8 +29,12 @@ const config: webpack.Configuration = {
                 enforce: "pre"
             },
             {
-                test: /\.css$/i,
+                test: /\.(css)$/i,
                 use: ["style-loader", "css-loader"],
+            },
+            {
+                test: /\.(scss)$/i,
+                use: ["sass-loader"],
             },
             {
                 test: /\.(tsx|ts)$/,

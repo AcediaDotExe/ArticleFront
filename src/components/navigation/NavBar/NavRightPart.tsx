@@ -16,11 +16,9 @@ import {
 import { Link } from 'react-router-dom'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import './css/NavRightPart.css'
+import SignInButton from "../../authentication/NavSignInButton";
 
 const NavRightPart = () => {
-    const isDarkMode: boolean = useTypedSelector(
-        (state) => state.themes.isDarkMode
-    )
 
     return (
         <>
@@ -58,25 +56,7 @@ const NavRightPart = () => {
                             <MenuBookIcon />
                         </IconButton>
                     </Tooltip>
-                    <Button>
-                        {isDarkMode ? (
-                            <Typography
-                                color="secondary"
-                                className={'font-Sono'}
-                                id={'log-in'}
-                            >
-                                Log In
-                            </Typography>
-                        ) : (
-                            <Typography
-                                color="secondary"
-                                className={'font-Sono'}
-                                id={'light-log-in'}
-                            >
-                                Log In
-                            </Typography>
-                        )}
-                    </Button>
+                    <SignInButton />
                 </Grid>
             </Box>
         </>
