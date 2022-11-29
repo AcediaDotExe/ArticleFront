@@ -1,12 +1,8 @@
-import {
-    ThemesAction,
-    ThemesActionTypes,
-    ThemesState,
-} from '../../types/themes'
-import { userData } from '../../utils/onLoadingPage/userData'
+import { ThemesAction, ThemesActionType, ThemesState } from '../../types/themes'
+import { userCookies } from '../../utils/userPreferences/userCookies'
 
 const initialState: ThemesState = {
-    isDarkMode: userData.isDarkMode,
+    isDarkMode: userCookies.isDarkMode,
 }
 
 export const themesReducer = (
@@ -14,7 +10,7 @@ export const themesReducer = (
     action: ThemesAction
 ): ThemesState => {
     switch (action.type) {
-        case ThemesActionTypes.SWITCH:
+        case ThemesActionType.SWITCH:
             document.cookie = 'isDarkMode=' + action.payload
             return { isDarkMode: action.payload }
         default:

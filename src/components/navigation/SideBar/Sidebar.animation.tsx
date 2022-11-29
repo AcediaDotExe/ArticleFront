@@ -11,16 +11,16 @@ import { drawerWidth } from '../../../themes/themes'
 import MenuOpenIcon from '@mui/icons-material/MenuOpen'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
-import { SidebarActionTypes } from '../../../types/sidebar'
+import { UiActionType } from '../../../types/ui'
 
 const SidebarAnimation: FC<OnlyChildProps> = ({ children }) => {
     const isSidebarOpen: boolean = useTypedSelector(
-        (state) => state.sidebar.isSidebarOpen
+        (state) => state.ui.isSidebarOpen
     )
     const dispatch = useDispatch()
 
     function handleDrawerClose() {
-        dispatch({ type: SidebarActionTypes.CLOSE })
+        dispatch({ type: UiActionType.CLOSE_SIDEBAR })
     }
 
     return (

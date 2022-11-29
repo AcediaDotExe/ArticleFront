@@ -1,14 +1,17 @@
 import { combineReducers } from 'redux'
-import { sidebarReducer } from './sidebarReducer'
+import { uiReducer } from './uiReducer'
 import { themesReducer } from './themeReducer'
 import { editorReducer } from './editorReducer'
-import {authenticationReducer} from "./authenticationReducer";
+import { authReducer } from './authReducer'
+import {userReducer} from "./userReducer";
 
 export const rootReducer = combineReducers({
-    sidebar: sidebarReducer,
+    sidebar: uiReducer,
     themes: themesReducer,
     editor: editorReducer,
-    authentication: authenticationReducer,
+    ui: uiReducer,
+    auth: authReducer,
+    user: userReducer,
 })
 
 export type RootState = ReturnType<typeof rootReducer>

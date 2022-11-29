@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container, Link, Paper, Popover, Typography } from '@mui/material'
+import { Box, Container, Link, Paper, Typography } from '@mui/material'
 
 const LayoutFooter = () => {
     return (

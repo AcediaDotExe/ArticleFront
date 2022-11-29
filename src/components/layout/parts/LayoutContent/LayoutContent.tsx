@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import { OnlyChildProps } from '../../../../types/types'
-import { Box, Grid, Paper, Theme, ThemeCssVar } from '@mui/material'
+import { Grid, Paper, Theme } from '@mui/material'
 
 const LayoutContent: FC<OnlyChildProps> = ({ children }) => {
     const styles = (theme: Theme) => ({
         width: '100vh',
-        height: '95vh',
+        minHeight: '95vh',
         display: 'flex',
         [theme.breakpoints.up('sm')]: {
             mt: '64px',

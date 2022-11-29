@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTypedSelector } from '../../../../hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
-import { ThemesActionTypes } from '../../../../types/themes'
+import { ThemesActionType } from '../../../../types/themes'
 import { MaterialUISwitch } from '../Sidebar.style'
 import { FormControlLabel } from '@mui/material'
 
@@ -10,7 +10,7 @@ const Themes = () => {
     const dispatch = useDispatch()
 
     function handleDarkModeChange() {
-        dispatch({ type: ThemesActionTypes.SWITCH, payload: !isDarkMode })
+        dispatch({ type: ThemesActionType.SWITCH, payload: !isDarkMode })
     }
 
     return (

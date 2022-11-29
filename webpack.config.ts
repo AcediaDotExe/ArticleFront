@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as webpack from 'webpack';
 import * as webpackDevServer from 'webpack-dev-server';
+import axios from 'axios';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
@@ -15,8 +16,16 @@ const config: webpack.Configuration = {
     },
     target: 'web',
     resolve: {
-        extensions: ['.ts', '.tsx', '.js']
+        extensions: ['.ts', '.tsx', '.js'],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'public', 'index.html'),
+            favicon: "./src/assets/icons/favicon.png"
+        }),
+        new CleanWebpackPlugin()
+    ],
+
     module: {
         rules: [
             {
@@ -59,13 +68,6 @@ const config: webpack.Configuration = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: 'auto',
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'public', 'index.html'),
-            favicon: "./src/assets/icons/favicon.png"
-        }),
-        new CleanWebpackPlugin()
-    ],
     performance: {
         hints: false,
         maxEntrypointSize: 512000,
