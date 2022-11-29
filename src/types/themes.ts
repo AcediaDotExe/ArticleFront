@@ -1,4 +1,4 @@
-export enum ThemesActionTypes {
+export enum ThemesActionType {
     SWITCH = 'SWITCH',
 }
 
@@ -7,6 +7,6 @@ export interface ThemesState {
 }
 
 export interface ThemesAction {
-    type: ThemesActionTypes
+    type: ThemesActionType
     payload: boolean
 }

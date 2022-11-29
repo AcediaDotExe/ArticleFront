@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Grid, IconButton, Tooltip, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import { useDispatch, useSelector } from 'react-redux'
-import { SidebarActionTypes } from '../../../types/sidebar'
+import { UiActionType } from '../../../types/ui'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import { Link } from 'react-router-dom'
 import './css/NavLeftPart.css'
@@ -12,7 +12,7 @@ import faviconDark from '/src/assets/icons/favicon-dark.png'
 
 const NavLeftPart = () => {
     const isSidebarOpen: boolean = useTypedSelector(
-        (state) => state.sidebar.isSidebarOpen
+        (state) => state.ui.isSidebarOpen
     )
     const isDarkMode: boolean = useTypedSelector(
         (state) => state.themes.isDarkMode
@@ -38,7 +38,7 @@ const NavLeftPart = () => {
                                 mr: 3,
                             }}
                             onClick={() =>
-                                dispatch({ type: SidebarActionTypes.OPEN })
+                                dispatch({ type: UiActionType.OPEN_SIDEBAR })
                             }
                             edge="start"
                         >

@@ -1,5 +1,6 @@
 import React from 'react'
-import ArticlePreview, { IArticle } from './ArticlePreview/ArticlePreview'
+import ArticlePreview, {IArticle} from './ArticlePreview/ArticlePreview'
+
 const articles: IArticle = require('/assets/articleTemplateData/article.json')
 
 interface IArticleList {

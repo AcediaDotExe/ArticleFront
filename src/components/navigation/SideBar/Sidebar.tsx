@@ -12,13 +12,13 @@ import {
     Typography,
 } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import { SidebarActionTypes, SidebarState } from '../../../types/sidebar'
+import { UiActionType, UiState } from '../../../types/ui'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import MenuOpenIcon from '@mui/icons-material/MenuOpen'
 import { drawerWidth } from '../../../themes/themes'
 import { MaterialUISwitch } from './Sidebar.style'
 import SidebarAnimation from './Sidebar.animation'
-import { ThemesActionTypes } from '../../../types/themes'
+import { ThemesActionType } from '../../../types/themes'
 import SidebarContent from './SidebarContent'
 
 const Sidebar = () => {
@@ -28,9 +28,10 @@ const Sidebar = () => {
     const dispatch = useDispatch()
 
     function handleDrawerClose() {
-        dispatch({ type: SidebarActionTypes.CLOSE })
+        dispatch({ type: UiActionType.CLOSE_SIDEBAR })
     }
 
+    const v = <div></div>
     const DrawerHeader = styled('div')(({ theme }) => ({
         display: 'flex',
         alignItems: 'center',

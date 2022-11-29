@@ -1,12 +1,12 @@
 import { cookies } from './readCookies'
 import { isSystemInDarkMode } from './readSystemData'
 
-interface userDataI {
+interface IUserCookies {
     isDarkMode: boolean
     isSidebarOpen: boolean
 }
 
-export const userData: userDataI = {
+export const userCookies: IUserCookies = {
     isDarkMode:
         cookies.isDarkMode !== null ? cookies.isDarkMode : isSystemInDarkMode,
     isSidebarOpen: cookies.isSidebarOpen,
