@@ -1,4 +1,5 @@
 import { EditorAction, EditorActionType, EditorState } from '../../types/editor'
+import { UiActionType } from '../../types/ui'
 
 const initialState: EditorState = {
     title: '',
@@ -17,6 +18,10 @@ export const editorReducer = (
             return { ...state, content: action.payload }
         case EditorActionType.SET_PREVIEW_IMAGE:
             return { ...state, previewImage: action.payload }
+        case EditorActionType.OPEN_PREVIEW_MODAL:
+            return { ...state, isPreviewOpen: true }
+        case EditorActionType.CLOSE_PREVIEW_MODAL:
+            return { ...state, isPreviewOpen: false }
         default:
             return state
     }

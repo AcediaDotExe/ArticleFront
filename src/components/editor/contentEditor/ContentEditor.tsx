@@ -54,7 +54,6 @@ const ContentEditor = () => {
                     />
                 </div>
             )}
-            <Typography textAlign="left">{content}</Typography>
         </>
     )
 }

@@ -5,12 +5,12 @@ export interface UserState {
     avatar: string | undefined
 }
 
-export enum UserActionType{
-    SET_USER= "SET_USER",
-    ID = "ID",
-    USERNAME = "USERNAME",
-    EMAIL = "EMAIL",
-    AVATAR = "AVATAR",
+export enum UserActionType {
+    SET_USER = 'SET_USER',
+    ID = 'ID',
+    USERNAME = 'USERNAME',
+    EMAIL = 'EMAIL',
+    AVATAR = 'AVATAR',
 }
 
 export interface UserAction {
