@@ -1,5 +1,4 @@
 import { EditorAction, EditorActionType, EditorState } from '../../types/editor'
-import { UiActionType } from '../../types/ui'
 
 const initialState: EditorState = {
     title: '',
