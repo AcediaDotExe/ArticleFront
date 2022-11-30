@@ -3,7 +3,7 @@ import { uiReducer } from './uiReducer'
 import { themesReducer } from './themeReducer'
 import { editorReducer } from './editorReducer'
 import { authReducer } from './authReducer'
-import {userReducer} from "./userReducer";
+import { userReducer } from './userReducer'
 
 export const rootReducer = combineReducers({
     sidebar: uiReducer,

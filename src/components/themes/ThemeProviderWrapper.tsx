@@ -5,7 +5,9 @@ import { Skeleton, ThemeProvider } from '@mui/material'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 
 const ThemeProviderWrapper: FC<OnlyChildProps> = ({ children }) => {
-    const isDarkMode: boolean = useTypedSelector((state) => state.themes.isDarkMode)
+    const isDarkMode: boolean = useTypedSelector(
+        (state) => state.themes.isDarkMode
+    )
 
     return (
         <>

@@ -13,7 +13,7 @@ export const uiReducer = (state = initialState, action: uiAction): UiState => {
             return { ...state, isSidebarOpen: true }
         case UiActionType.CLOSE_SIDEBAR:
             document.cookie = 'isSidebarOpen=false'
-            return { ...state,  isSidebarOpen: false}
+            return { ...state, isSidebarOpen: false }
         case UiActionType.OPEN_SIGN_IN_MODAL_WINDOW:
             return { ...state, isSignInModalOpen: true }
         case UiActionType.CLOSE_SIGN_IN_MODAL_WINDOW:

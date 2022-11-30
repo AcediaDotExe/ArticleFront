@@ -1,6 +1,7 @@
 import React from 'react'
 import { TextField, Typography } from '@mui/material'
 import ContentEditor from '../contentEditor/ContentEditor'
+import PreviewButton from '../PreviewButton/PreviewButton'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
 import { EditorActionType } from '../../../types/editor'
@@ -61,6 +62,7 @@ const ArticleEditor = () => {
                 }}
             />
             <ContentEditor />
+            <PreviewButton />
         </>
     )
 }
