@@ -53,7 +53,7 @@ export const SignInModal: FC = () => {
                     sx={{ textAlign: 'center' }}
                 >
                     <Link
-                        href={GoogleSignInLink}
+                        href={GoogleSignInLink.replace('{currentHost}', window.location.href)}
                         sx={{ textDecoration: 'none' }}
                     >
                         <Button
