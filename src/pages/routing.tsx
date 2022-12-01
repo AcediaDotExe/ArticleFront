@@ -10,8 +10,18 @@ import {
     MyHistory,
 } from './index'
 import { BrowserRouter, HashRouter } from 'react-router-dom'
+import {useDispatch} from "react-redux";
+import {setUser} from "../utils/userAuth/user";
+import {UserActionType, UserState} from "../types/user";
 
 const Routing = () => {
+
+    const dispatch = useDispatch();
+
+    setUser().then(((value: UserState) => {
+        dispatch({type: UserActionType.SET_USER, payload: value})
+    }))
+
     return (
         <HashRouter>
             <Routes>
