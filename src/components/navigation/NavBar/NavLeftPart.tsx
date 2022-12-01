@@ -7,8 +7,8 @@ import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import { Link } from 'react-router-dom'
 import './css/NavLeftPart.css'
 
-import favicon from "./src/assets/icons/favicon.png"
-import faviconDark from './src/assets/icons/favicon-dark.png'
+import favicon from "/src/assets/icons/favicon.png"
+import faviconDark from '/src/assets/icons/favicon-dark.png'
 
 const NavLeftPart = () => {
     const isSidebarOpen: boolean = useTypedSelector(
