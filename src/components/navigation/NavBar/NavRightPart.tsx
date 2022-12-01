@@ -4,14 +4,10 @@ import CreateIcon from '@mui/icons-material/Create'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
 import HistoryIcon from '@mui/icons-material/History'
 import {
-    BottomNavigation,
-    BottomNavigationAction,
     Box,
-    Button,
     Grid,
     IconButton,
     Tooltip,
-    Typography,
 } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
@@ -60,7 +56,7 @@ const NavRightPart = () => {
                             <MenuBookIcon />
                         </IconButton>
                     </Tooltip>
-                    {avatar != null ? (
+                    {avatar? (
                         <UserAvatar avatar={avatar} />
                     ) : (
                         <SignInButton />
