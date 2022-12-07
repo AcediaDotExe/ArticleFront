@@ -1,14 +1,11 @@
 import React from 'react'
-// @ts-expect-error
 import { CKEditor } from '@ckeditor/ckeditor5-react'
-// @ts-expect-error
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import './ContentEditor.css'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
 import { EditorActionType } from '../../../types/editor'
 import { Box, CssBaseline, Typography } from '@mui/material'
-const parse = require('html-react-parser')
 
 const ContentEditor = () => {
     const isDarkMode: boolean = useTypedSelector(
