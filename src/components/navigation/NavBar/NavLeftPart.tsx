@@ -51,7 +51,12 @@ const NavLeftPart = () => {
                         style={{ color: '#e3f2fd', textDecoration: 'none' }}
                     >
                         {isDarkMode ? (
-                            <>
+                            <Grid
+                                container
+                                direction="row"
+                                justifyContent="flex-start"
+                                alignItems="center"
+                                display="flex">
                                 <img
                                     src={faviconDark}
                                     alt="Kitty"
@@ -73,9 +78,14 @@ const NavLeftPart = () => {
                                 >
                                     <div id={'logo-inside'}>Caticles</div>
                                 </Typography>
-                            </>
+                            </Grid>
                         ) : (
-                            <>
+                            <Grid
+                                container
+                                direction="row"
+                                justifyContent="flex-start"
+                                alignItems="center"
+                                display="flex">
                                 <img
                                     src={favicon}
                                     alt="Dark Kitty"
@@ -97,7 +107,7 @@ const NavLeftPart = () => {
                                 >
                                     <div id={'light-logo-inside'}>Caticles</div>
                                 </Typography>
-                            </>
+                            </Grid>
                         )}
                     </Link>
                 </Grid>
