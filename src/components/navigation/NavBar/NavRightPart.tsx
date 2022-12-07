@@ -3,12 +3,7 @@ import NavButton from './NavButton/NavButton'
 import CreateIcon from '@mui/icons-material/Create'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
 import HistoryIcon from '@mui/icons-material/History'
-import {
-    Box,
-    Grid,
-    IconButton,
-    Tooltip,
-} from '@mui/material'
+import { Box, Grid, IconButton, Tooltip } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import './css/NavRightPart.css'
@@ -56,11 +51,7 @@ const NavRightPart = () => {
                             <MenuBookIcon />
                         </IconButton>
                     </Tooltip>
-                    {avatar? (
-                        <UserAvatar avatar={avatar} />
-                    ) : (
-                        <SignInButton />
-                    )}
+                    {avatar ? <UserAvatar avatar={avatar} /> : <SignInButton />}
                 </Grid>
             </Box>
         </>
