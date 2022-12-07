@@ -1,7 +1,7 @@
 export interface UserState {
     id: string | undefined
     username: string | undefined
-    email: string | undefined
+    email?: string | undefined
     avatar: string | undefined
 }
 

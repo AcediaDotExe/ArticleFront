@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { FC, useEffect, useMemo } from 'react'
 import { Route, Routes } from 'react-router'
 import {
     AllArticles,
@@ -10,17 +10,8 @@ import {
     MyHistory,
 } from './index'
 import { BrowserRouter, HashRouter } from 'react-router-dom'
-import { setUser } from '../utils/userAuth/user'
-import { UserActionType, UserState } from '../types/user'
-import { useDispatch } from 'react-redux'
-import { useTypedSelector } from '../hooks/useTypedSelector'
 
-const Routing = () => {
-    const dispatch = useDispatch()
-    setUser().then((value: UserState) => {
-        dispatch({ type: UserActionType.SET_USER, payload: value })
-    })
-
+const Routing: FC = () => {
     return (
         <HashRouter>
             <Routes>
