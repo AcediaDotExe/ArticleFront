@@ -56,7 +56,8 @@ const NavLeftPart = () => {
                                 direction="row"
                                 justifyContent="flex-start"
                                 alignItems="center"
-                                display="flex">
+                                display="flex"
+                            >
                                 <img
                                     src={faviconDark}
                                     alt="Kitty"
@@ -85,7 +86,8 @@ const NavLeftPart = () => {
                                 direction="row"
                                 justifyContent="flex-start"
                                 alignItems="center"
-                                display="flex">
+                                display="flex"
+                            >
                                 <img
                                     src={favicon}
                                     alt="Dark Kitty"

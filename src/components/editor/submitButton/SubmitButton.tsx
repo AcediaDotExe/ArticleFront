@@ -1,11 +1,9 @@
-import React, {FC} from 'react';
-import {Button, Typography} from '@mui/material';
-import {ArticleType} from '../../../types/article';
-import {getToken} from '../../../utils/queryParams/token';
+import React, { FC } from 'react'
+import { Button, Typography } from '@mui/material'
+import { ArticleType } from '../../../types/article'
+import { getToken } from '../../../utils/queryParams/token'
 
-
-
-const SubmitButton:FC<ArticleType> = ({title, previewImage, content }) => {
+const SubmitButton: FC<ArticleType> = ({ title, previewImage, content }) => {
     async function submitArticle() {
         const bearerToken = String(getToken())
         await fetch('https://comgrid.ru/article-api/users/', {
@@ -19,13 +17,10 @@ const SubmitButton:FC<ArticleType> = ({title, previewImage, content }) => {
         })
     }
     return (
-        <Button variant="outlined" color="secondary" onClick={submitArticle}
-        >
-            <Typography fontFamily="Sono">
-                Submit
-            </Typography>
+        <Button variant="outlined" color="secondary" onClick={submitArticle}>
+            <Typography fontFamily="Sono">Submit</Typography>
         </Button>
-    );
-};
+    )
+}
 
-export default SubmitButton;
+export default SubmitButton

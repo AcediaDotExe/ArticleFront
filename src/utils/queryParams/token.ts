@@ -1,16 +1,26 @@
-import { parseJwt } from '../parsers/jwt'
+import {parseJwt} from '../parsers/jwt'
+import {cookies} from '../userPreferences/readCookies'
 
 export function getParsedToken(): IToken | null {
-    const token = getToken()
-    if (token) {
+    const token: string = getToken()
+    if (token !== undefined) {
         return parseJwt(token)
     }
     return null
 }
 
-export function getToken() {
+export function getToken(): string {
+    let token: string | undefined = cookies.token
     const urlParams = new URLSearchParams(window.location.search)
-    return urlParams.get('token')
+
+    if (token !== undefined && token !== 'null' && token !== '') {
+        urlParams.delete('token')
+        return token
+    }
+    token = urlParams.get('token') as string
+
+    document.cookie = `token=${token}`
+    return token
 }
 
 export interface IToken {

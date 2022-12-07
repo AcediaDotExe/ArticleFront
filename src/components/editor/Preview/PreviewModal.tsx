@@ -17,7 +17,6 @@ const Transition = React.forwardRef(function Transition(
 })
 
 export const PreviewModal: FC = () => {
-
     const isModalOpen: boolean = useTypedSelector(
         (state) => state.editor.isPreviewOpen
     )
@@ -40,9 +39,7 @@ export const PreviewModal: FC = () => {
             fullWidth={true}
             scroll={'body'}
         >
-            <DialogContent>
-                {parse(content)}
-            </DialogContent>
+            <DialogContent>{parse(content)}</DialogContent>
         </Dialog>
     )
 }

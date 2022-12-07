@@ -1,5 +1,4 @@
 import React from 'react'
-import NavButton from './NavButton/NavButton'
 import CreateIcon from '@mui/icons-material/Create'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
 import HistoryIcon from '@mui/icons-material/History'
@@ -14,7 +13,7 @@ const NavRightPart = () => {
     const avatar: string | undefined = useTypedSelector(
         (state) => state.user.avatar
     )
-    console.log(avatar)
+
     return (
         <>
             <Box>
@@ -51,7 +50,11 @@ const NavRightPart = () => {
                             <MenuBookIcon />
                         </IconButton>
                     </Tooltip>
-                    {avatar ? <UserAvatar avatar={avatar} /> : <SignInButton />}
+                    {avatar !== undefined ? (
+                        <UserAvatar avatar={avatar} />
+                    ) : (
+                        <SignInButton />
+                    )}
                 </Grid>
             </Box>
         </>

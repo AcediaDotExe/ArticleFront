@@ -13,13 +13,8 @@ const PreviewButton = () => {
 
     return (
         <>
-            <Button onClick={showPreview}
-                    color='secondary'
-            >
-                <Typography
-                    color="secondary"
-                    fontFamily={'Sono'}
-                >
+            <Button onClick={showPreview} color="secondary">
+                <Typography color="secondary" fontFamily={'Sono'}>
                     Preview
                 </Typography>
             </Button>

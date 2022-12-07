@@ -1,23 +1,23 @@
 import React from 'react'
-import {Grid, TextField, Typography} from '@mui/material'
+import { Grid, TextField, Typography } from '@mui/material'
 import ContentEditor from './contentEditor/ContentEditor'
 import PreviewButton from './Preview/PreviewButton'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
 import { EditorActionType } from '../../types/editor'
-import SubmitButton from './submitButton/SubmitButton';
+import SubmitButton from './submitButton/SubmitButton'
 
 const ArticleEditor = () => {
     const title: string = useTypedSelector((state) => state.editor.title)
     const previewImage: string = useTypedSelector(
         (state) => state.editor.previewImage
     )
-    const content: string = useTypedSelector(
-        (state) => state.editor.content
-    )
+    const content: string = useTypedSelector((state) => state.editor.content)
     const dispatch = useDispatch()
 
-    function handleTitleChange(event: React.ChangeEvent<HTMLInputElement>): void {
+    function handleTitleChange(
+        event: React.ChangeEvent<HTMLInputElement>
+    ): void {
         dispatch({
             type: EditorActionType.SET_TITLE,
             payload: event.target.value,
@@ -74,17 +74,26 @@ const ArticleEditor = () => {
                 alignItems="center"
                 display="flex"
                 spacing={5}
-
             >
-                <Grid item sx={{
-                    mt: '15px',
-                }}>
-                    <PreviewButton/>
+                <Grid
+                    item
+                    sx={{
+                        mt: '15px',
+                    }}
+                >
+                    <PreviewButton />
                 </Grid>
-                <Grid item sx={{
-                    mt: '15px',
-                }}>
-                    <SubmitButton title={title} previewImage={previewImage} content={content}/>
+                <Grid
+                    item
+                    sx={{
+                        mt: '15px',
+                    }}
+                >
+                    <SubmitButton
+                        title={title}
+                        previewImage={previewImage}
+                        content={content}
+                    />
                 </Grid>
             </Grid>
         </>
