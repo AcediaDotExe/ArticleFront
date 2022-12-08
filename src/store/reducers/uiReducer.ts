@@ -4,7 +4,7 @@ import { userCookies } from '../../utils/userPreferences/userCookies'
 const initialState: UiState = {
     isSidebarOpen: userCookies.isSidebarOpen,
     isSignInModalOpen: false,
-    avatarAnchor: null
+    avatarAnchor: null,
 }
 
 export const uiReducer = (state = initialState, action: uiAction): UiState => {
@@ -20,7 +20,10 @@ export const uiReducer = (state = initialState, action: uiAction): UiState => {
         case UiActionType.CLOSE_SIGN_IN_MODAL_WINDOW:
             return { ...state, isSignInModalOpen: false }
         case UiActionType.SET_AVATAR_ANCHOR:
-            return { ...state, avatarAnchor: action.payload as HTMLElement | null}
+            return {
+                ...state,
+                avatarAnchor: action.payload as HTMLElement | null,
+            }
         default:
             return state
     }
