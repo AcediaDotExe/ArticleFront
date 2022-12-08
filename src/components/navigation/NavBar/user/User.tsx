@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useTypedSelector } from '../../../../hooks/useTypedSelector'
 import UserAvatar from './UserAvatar'
-import {Button, Grid, IconButton, Tooltip, Typography} from '@mui/material'
+import { Button, Grid, IconButton, Tooltip, Typography } from '@mui/material'
 import UserSubMenu from './UserSubMenu'
 import { useDispatch } from 'react-redux'
 import { UiActionType } from '../../../../types/ui'
@@ -35,27 +35,33 @@ const User: FC = () => {
     return (
         <>
             <Tooltip title="Profile">
-            <Grid
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="center"
-            >
-                <Button
-                    color="secondary"
-                    onClick={handleOpen}
-                    size="small"
-                    aria-controls={isAvatarSubMenu ? 'account-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={isAvatarSubMenu ? 'true' : undefined}
-                    sx={{
-                        textTransform: 'none',
-                        marginLeft: '3px',
-                    }}
+                <Grid
+                    direction="row"
+                    justifyContent="flex-start"
+                    alignItems="center"
                 >
-                    <UserAvatar avatar={avatar} />
-                    <Typography font="Sono" sx={{marginLeft: '7px', marginTop: '3px'}}>{username}</Typography>
-                </Button>
-            </Grid>
+                    <Button
+                        color="secondary"
+                        onClick={handleOpen}
+                        size="small"
+                        aria-controls={
+                            isAvatarSubMenu ? 'account-menu' : undefined
+                        }
+                        aria-haspopup="true"
+                        aria-expanded={isAvatarSubMenu ? 'true' : undefined}
+                        sx={{
+                            textTransform: 'none',
+                            marginLeft: '3px',
+                        }}
+                    >
+                        <UserAvatar avatar={avatar} />
+                        <Typography
+                            sx={{ marginLeft: '7px', marginTop: '3px' }}
+                        >
+                            {username}
+                        </Typography>
+                    </Button>
+                </Grid>
             </Tooltip>
             <UserSubMenu
                 anchorEl={anchor}

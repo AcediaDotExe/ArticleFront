@@ -4,7 +4,7 @@ import ContentEditor from './contentEditor/ContentEditor'
 import PreviewButton from './Preview/PreviewButton'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
-import { EditorActionType } from '../../types/editor'
+import { EditorActionType, EditorState } from '../../types/editor'
 import SubmitButton from './submitButton/SubmitButton'
 
 const ArticleEditor = () => {
@@ -13,6 +13,11 @@ const ArticleEditor = () => {
         (state) => state.editor.previewImage
     )
     const content: string = useTypedSelector((state) => state.editor.content)
+
+    const submitCallback: string = useTypedSelector(
+        (state) => state.editor.submitCallback
+    ) as string
+
     const dispatch = useDispatch()
 
     function handleTitleChange(
@@ -31,6 +36,7 @@ const ArticleEditor = () => {
             payload: event.target.value,
         })
     }
+
     return (
         <>
             <Typography fontFamily="Sono" fontSize={26}>
@@ -96,6 +102,12 @@ const ArticleEditor = () => {
                     />
                 </Grid>
             </Grid>
+            <Typography
+                fontFamily="Sono"
+                sx={{ textAlign: 'center', marginTop: '10px' }}
+            >
+                {submitCallback}
+            </Typography>
         </>
     )
 }
