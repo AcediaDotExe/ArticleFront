@@ -2,6 +2,7 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 import * as webpackDevServer from 'webpack-dev-server';
 import axios from 'axios';
+import {basicUrl} from './src/assets/urls/urls';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
@@ -66,7 +67,7 @@ const config: webpack.Configuration = {
     output: {
         filename: '[name].[fullhash:8].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'auto',
+        publicPath: basicUrl,
     },
     performance: {
         hints: false,
