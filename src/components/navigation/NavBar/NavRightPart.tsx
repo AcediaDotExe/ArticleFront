@@ -7,12 +7,11 @@ import { Link } from 'react-router-dom'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import './css/NavRightPart.css'
 import SignInButton from '../../authentication/signIn/NavSignInButton'
-import UserAvatar from '../../user/UserAvatar'
+import UserAvatar from './user/UserAvatar'
+import User from './user/User'
 
 const NavRightPart = () => {
-    const avatar: string | undefined = useTypedSelector(
-        (state) => state.user.avatar
-    )
+    const id: string | undefined = useTypedSelector((state) => state.user.id)
 
     return (
         <>
@@ -50,11 +49,7 @@ const NavRightPart = () => {
                             <MenuBookIcon />
                         </IconButton>
                     </Tooltip>
-                    {avatar !== undefined ? (
-                        <UserAvatar avatar={avatar} />
-                    ) : (
-                        <SignInButton />
-                    )}
+                    {id !== undefined ? <User /> : <SignInButton />}
                 </Grid>
             </Box>
         </>

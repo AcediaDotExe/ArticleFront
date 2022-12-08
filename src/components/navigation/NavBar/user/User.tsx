@@ -1,22 +1,24 @@
 import React, { FC } from 'react'
-import { useTypedSelector } from '../../hooks/useTypedSelector'
-import { Avatar, Box, Button, IconButton, Paper, Tooltip } from '@mui/material'
-import { Image } from '@mui/icons-material'
-import './user.css'
+import { useTypedSelector } from '../../../../hooks/useTypedSelector'
+import UserAvatar from './UserAvatar'
+import {Button, Grid, IconButton, Tooltip, Typography} from '@mui/material'
+import UserSubMenu from './UserSubMenu'
 import { useDispatch } from 'react-redux'
-import { UiActionType } from '../../types/ui'
-import AvatarSubMenu from './AvatarSubMenu'
+import { UiActionType } from '../../../../types/ui'
 
-interface IUserAvatar {
-    avatar: string
-}
+const User: FC = () => {
+    let username: string = useTypedSelector((state) => state.user.username)
+    username = username.split(' ')[0]
 
-const UserAvatar: FC<IUserAvatar> = ({ avatar }) => {
+    const avatar: string = useTypedSelector(
+        (state) => state.user.avatar
+    ) as string
+
     const anchor: HTMLElement | null = useTypedSelector(
         (state) => state.ui.avatarAnchor
     )
     const isAvatarSubMenu = Boolean(anchor)
-    console.log(isAvatarSubMenu)
+
     const dispatch = useDispatch()
 
     const handleOpen = (event: React.MouseEvent<HTMLElement>): void => {
@@ -32,23 +34,30 @@ const UserAvatar: FC<IUserAvatar> = ({ avatar }) => {
 
     return (
         <>
-            <Tooltip title={'Profile'}>
-                <IconButton
+            <Tooltip title="Profile">
+            <Grid
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="center"
+            >
+                <Button
+                    color="secondary"
                     onClick={handleOpen}
                     size="small"
                     aria-controls={isAvatarSubMenu ? 'account-menu' : undefined}
                     aria-haspopup="true"
                     aria-expanded={isAvatarSubMenu ? 'true' : undefined}
                     sx={{
-                        color: 'secondary',
-                        height: '45px',
-                        width: '45px',
+                        textTransform: 'none',
+                        marginLeft: '3px',
                     }}
                 >
-                    <img id="user-avatar" alt="Avatar" src={avatar} />
-                </IconButton>
+                    <UserAvatar avatar={avatar} />
+                    <Typography font="Sono" sx={{marginLeft: '7px', marginTop: '3px'}}>{username}</Typography>
+                </Button>
+            </Grid>
             </Tooltip>
-            <AvatarSubMenu
+            <UserSubMenu
                 anchorEl={anchor}
                 isAvatarSubMenu={isAvatarSubMenu}
                 handleClose={handleClose}
@@ -57,4 +66,4 @@ const UserAvatar: FC<IUserAvatar> = ({ avatar }) => {
     )
 }
 
-export default UserAvatar
+export default User

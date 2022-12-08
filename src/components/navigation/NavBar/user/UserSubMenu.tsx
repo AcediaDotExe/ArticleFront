@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { ListItemIcon, Menu, MenuItem } from '@mui/material'
 import { Logout } from '@mui/icons-material'
-import UserLogout from '../authentication/logout/UserLogout'
+import UserLogout from '../../../authentication/logout/UserLogout'
 
 interface IAvatarSubMenu {
     isAvatarSubMenu: boolean
@@ -9,7 +9,7 @@ interface IAvatarSubMenu {
     anchorEl: HTMLElement | null
 }
 
-const AvatarSubMenu: FC<IAvatarSubMenu> = ({
+const UserSubMenu: FC<IAvatarSubMenu> = ({
     isAvatarSubMenu,
     handleClose,
     anchorEl,
@@ -55,4 +55,4 @@ const AvatarSubMenu: FC<IAvatarSubMenu> = ({
     )
 }
 
-export default AvatarSubMenu
+export default UserSubMenu
