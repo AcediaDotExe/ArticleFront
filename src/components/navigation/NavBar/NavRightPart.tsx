@@ -6,7 +6,7 @@ import { Box, Grid, IconButton, Tooltip } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import './css/NavRightPart.css'
-import SignInButton from '../../authentication/NavSignInButton'
+import SignInButton from '../../authentication/signIn/NavSignInButton'
 import UserAvatar from '../../user/UserAvatar'
 
 const NavRightPart = () => {

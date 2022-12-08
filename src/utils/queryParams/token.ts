@@ -1,5 +1,5 @@
-import {parseJwt} from '../parsers/jwt'
-import {cookies} from '../userPreferences/readCookies'
+import { parseJwt } from '../parsers/jwt'
+import { cookies } from '../userPreferences/readCookies'
 
 export function getParsedToken(): IToken | null {
     const token: string = getToken()

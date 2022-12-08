@@ -10,12 +10,12 @@ import {
     Link,
     Slide,
 } from '@mui/material'
-import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
 import { TransitionProps } from '@mui/material/transitions'
 import './SignInButton.css'
-import { GoogleSignInLink } from '../../assets/authentication/authenticationData'
-import { UiActionType } from '../../types/ui'
+import { GoogleSignInLink } from '../../../assets/authentication/authenticationData'
+import { UiActionType } from '../../../types/ui'
 
 const Transition = React.forwardRef(function Transition(
     props: TransitionProps & {

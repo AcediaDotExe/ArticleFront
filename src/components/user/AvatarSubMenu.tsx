@@ -1,14 +1,19 @@
-import React, {FC} from 'react';
-import {ListItemIcon, Menu, MenuItem} from '@mui/material';
-import {Logout} from '@mui/icons-material';
+import React, { FC } from 'react'
+import { ListItemIcon, Menu, MenuItem } from '@mui/material'
+import { Logout } from '@mui/icons-material'
+import UserLogout from '../authentication/logout/UserLogout'
 
-interface IAvatarSubMenu{
-    isAvatarSubMenu: boolean,
-    handleClose: (event: React.MouseEvent<HTMLElement>) => void,
+interface IAvatarSubMenu {
+    isAvatarSubMenu: boolean
+    handleClose: (event: React.MouseEvent<HTMLElement>) => void
     anchorEl: HTMLElement | null
 }
 
-const AvatarSubMenu:FC<IAvatarSubMenu> = ( {isAvatarSubMenu, handleClose, anchorEl} ) => {
+const AvatarSubMenu: FC<IAvatarSubMenu> = ({
+    isAvatarSubMenu,
+    handleClose,
+    anchorEl,
+}) => {
     return (
         <Menu
             anchorEl={anchorEl}
@@ -45,14 +50,9 @@ const AvatarSubMenu:FC<IAvatarSubMenu> = ( {isAvatarSubMenu, handleClose, anchor
             transformOrigin={{ horizontal: 'right', vertical: 'top' }}
             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
-            <MenuItem>
-                <ListItemIcon>
-                    <Logout fontSize="small" />
-                </ListItemIcon>
-                Logout
-            </MenuItem>
+            <UserLogout />
         </Menu>
-    );
-};
+    )
+}
 
-export default AvatarSubMenu;
+export default AvatarSubMenu

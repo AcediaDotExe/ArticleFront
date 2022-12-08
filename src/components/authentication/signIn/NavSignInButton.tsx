@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { Button, Typography } from '@mui/material'
-import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
 import { SignInModal } from './SignInModal'
 import axios from 'axios'
-import { UiActionType } from '../../types/ui'
+import { UiActionType } from '../../../types/ui'
 
 const SignUpButton = () => {
     const isDarkMode: boolean = useTypedSelector(
