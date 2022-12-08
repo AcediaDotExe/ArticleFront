@@ -1,5 +1,6 @@
 import { getParsedToken, getToken } from '../queryParams/token'
 import { UserState } from '../../types/user'
+import { serverUrl } from '../../assets/urls/urls'
 
 export async function setUser(): Promise<UserState | undefined> {
     const user: UserState = {
@@ -17,7 +18,7 @@ export async function setUser(): Promise<UserState | undefined> {
 
 async function fetchUser(): Promise<UserState> {
     const bearerToken = String(getToken())
-    return await fetch('https://comgrid.ru/article-api/users/', {
+    return await fetch(serverUrl + 'users/', {
         method: 'GET',
         mode: 'cors',
         headers: new Headers({

@@ -10,7 +10,6 @@ function getCookies(): ICookies {
     const parts = value.split('; ')
     parts.forEach((part) => {
         const cookiePiece = part.split('=')
-        console.log(cookiePiece)
         if (cookiePiece[0] === 'isSidebarOpen') {
             cookies.isSidebarOpen = cookiePiece[1] === 'true'
         }

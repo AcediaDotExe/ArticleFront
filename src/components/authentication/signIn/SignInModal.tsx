@@ -14,7 +14,7 @@ import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
 import { TransitionProps } from '@mui/material/transitions'
 import './SignInButton.css'
-import { GoogleSignInLink } from '../../../assets/authentication/authenticationData'
+import { GoogleSignInLink } from '../../../assets/urls/urls'
 import { UiActionType } from '../../../types/ui'
 
 const Transition = React.forwardRef(function Transition(

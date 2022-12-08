@@ -2,7 +2,8 @@ export interface EditorState {
     title: string
     content: string
     previewImage: string
-    isPreviewOpen: boolean
+    isPreviewOpen?: boolean
+    submitCallback?: string
 }
 
 export enum EditorActionType {
@@ -11,6 +12,7 @@ export enum EditorActionType {
     SET_PREVIEW_IMAGE = 'SET_PREVIEW_IMAGE',
     OPEN_PREVIEW_MODAL = 'OPEN_PREVIEW_MODAL',
     CLOSE_PREVIEW_MODAL = 'CLOSE_PREVIEW_MODAL',
+    SET_SUBMIT_CALLBACK = 'SET_SUBMIT_CALLBACK',
 }
 
 export interface EditorAction {

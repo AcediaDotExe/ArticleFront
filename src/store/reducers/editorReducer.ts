@@ -12,15 +12,27 @@ export const editorReducer = (
 ): EditorState => {
     switch (action.type) {
         case EditorActionType.SET_TITLE:
+            if (state.submitCallback !== 'Saved!')
+                return { ...state, title: action.payload, submitCallback: '' }
             return { ...state, title: action.payload }
         case EditorActionType.SET_CONTENT:
-            return { ...state, content: action.payload }
+            if (state.submitCallback !== 'Saved!')
+                return { ...state, content: action.payload, submitCallback: '' }
+            return { ...state, title: action.payload }
         case EditorActionType.SET_PREVIEW_IMAGE:
-            return { ...state, previewImage: action.payload }
+            if (state.submitCallback !== 'Saved!')
+                return {
+                    ...state,
+                    previewImage: action.payload,
+                    submitCallback: '',
+                }
+            return { ...state, title: action.payload }
         case EditorActionType.OPEN_PREVIEW_MODAL:
             return { ...state, isPreviewOpen: true }
         case EditorActionType.CLOSE_PREVIEW_MODAL:
             return { ...state, isPreviewOpen: false }
+        case EditorActionType.SET_SUBMIT_CALLBACK:
+            return { ...state, submitCallback: action.payload }
         default:
             return state
     }
