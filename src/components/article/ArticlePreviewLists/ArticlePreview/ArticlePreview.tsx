@@ -7,7 +7,7 @@ import {
     Grid,
     Typography,
 } from '@mui/material'
-import { ArticleState, IArticlePreview } from '../../../../types/articles'
+import { ArticleState } from '../../../../types/articles'
 import ArticlePreviewHat from './ArticlePreviewHat'
 import './articlePreview.css'
 import { useTypedSelector } from '../../../../hooks/useTypedSelector'
@@ -24,7 +24,7 @@ const ArticlePreview: FC<IArticlePreview> = ({ article }) => {
     )
 
     const cardClassName = isDarkMode
-        ? 'conic conic-dark zoom gradient-hover-effect'
+        ? 'conic conic-dark zoom appearance'
         : 'conic conic-light zoom'
 
     const headerStyle = {
@@ -50,8 +50,10 @@ const ArticlePreview: FC<IArticlePreview> = ({ article }) => {
             }}
             className={cardClassName}
         >
-            <ButtonBase onClick={routeChange} sx={{minWidth: '100%',
-                maxWidth: '100%'}}>
+            <ButtonBase
+                onClick={routeChange}
+                sx={{ minWidth: '100%', maxWidth: '100%' }}
+            >
                 <Grid container direction="column" textAlign="center">
                     <ArticlePreviewHat article={article} />
                     <Divider />

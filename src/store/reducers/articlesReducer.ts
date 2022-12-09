@@ -1,4 +1,9 @@
-import {ArticlesAction, ArticlesActionType, ArticlesState, ArticleState,} from '../../types/articles'
+import {
+    ArticlesAction,
+    ArticlesActionType,
+    ArticlesState,
+    ArticleState,
+} from '../../types/articles'
 
 const initialState: ArticlesState = {
     articles: [],
@@ -11,9 +16,9 @@ export const articlesReducer = (
 ): ArticlesState => {
     switch (action.type) {
         case ArticlesActionType.SET_ARTICLES:
-            return {...state, articles: action.payload as ArticleState[]}
+            return { ...state, articles: action.payload as ArticleState[] }
         case ArticlesActionType.SET_ARTICLE:
-            return {...state, article: action.payload as ArticleState}
+            return { ...state, article: action.payload as ArticleState }
         default:
             return state
     }

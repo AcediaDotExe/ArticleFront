@@ -6,7 +6,7 @@ import ArticlePreviewList from '../../components/article/ArticlePreviewLists/Art
 const AllArticles: FC = () => {
     return (
         <Layout>
-            <ArticlePreviewList />
+            <ArticlePreviewList anchor={'main-page'} />
         </Layout>
     )
 }

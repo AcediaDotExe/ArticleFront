@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Layout from '../../components/layout/layout/Layout'
+import ArticlePreviewList from '../../components/article/ArticlePreviewLists/ArticlePreviewList'
 
-const MyArticles = () => {
+const MyArticles: FC = () => {
     return (
         <Layout>
-            <p> MyArticles </p>
+            <ArticlePreviewList anchor={'my-articles'} />
         </Layout>
     )
 }
