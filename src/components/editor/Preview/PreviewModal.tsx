@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { TransitionProps } from '@mui/material/transitions'
 import './preview.css'
 import { EditorActionType } from '../../../types/editor'
+
 const parse = require('html-react-parser')
 
 const Transition = React.forwardRef(function Transition(
@@ -17,14 +18,13 @@ const Transition = React.forwardRef(function Transition(
 })
 
 export const PreviewModal: FC = () => {
-    const isModalOpen: boolean = useTypedSelector(
-        (state) => state.editor.isPreviewOpen
-    )
+    const isModalOpen: boolean =
+        useTypedSelector((state) => state.editor.isPreviewOpen) ?? false
 
     const dispatch = useDispatch()
     const content: string = useTypedSelector((state) => state.editor.content)
 
-    function handleClosePreviewModal() {
+    function handleClosePreviewModal(): void {
         dispatch({ type: EditorActionType.CLOSE_PREVIEW_MODAL })
     }
 

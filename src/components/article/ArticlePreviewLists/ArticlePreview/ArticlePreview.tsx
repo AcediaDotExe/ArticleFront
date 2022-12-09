@@ -1,33 +1,69 @@
-import React, { FC } from 'react'
-import { Grid, Typography } from '@mui/material'
-import ReadMoreIcon from '@mui/icons-material/ReadMore'
-import { Link } from 'react-router-dom'
-import ArticlePreviewHeader from './ArticlePreviewHeader'
+import React, { FC, useEffect, useMemo } from 'react'
+import {
+    Button,
+    ButtonBase,
+    Card,
+    Divider,
+    Grid,
+    Typography,
+} from '@mui/material'
+import { ArticleState, IArticlePreview } from '../../../../types/articles'
+import ArticlePreviewHat from './ArticlePreviewHat'
+import './articlePreview.css'
+import { useTypedSelector } from '../../../../hooks/useTypedSelector'
+import { useNavigate } from 'react-router'
 
-export interface IArticle {
-    id: number
-    authorId: number
-    date: string
-    header: string
-    text: string
-    feedback: IFeedback
+export interface IArticlePreview {
+    id?: number
+    article: ArticleState
 }
 
-interface IFeedback {
-    likes: number
-    dislikes: number
-    views: number
-}
+const ArticlePreview: FC<IArticlePreview> = ({ article }) => {
+    const isDarkMode: boolean = useTypedSelector(
+        (state) => state.themes.isDarkMode
+    )
 
-const ArticlePreview: FC<IArticle> = (article) => {
+    const cardClassName = isDarkMode
+        ? 'conic conic-dark zoom gradient-hover-effect'
+        : 'conic conic-light zoom'
+
+    const headerStyle = {
+        fontSize: '25px',
+        textAlign: 'center',
+        fontFamily: 'Sono',
+        marginTop: '15px',
+        marginBottom: '15px',
+    }
+
+    const navigate = useNavigate()
+    const routeChange = (): void => {
+        navigate('/reading/' + String(article.id))
+    }
+
     return (
-        <Grid>
-            <ArticlePreviewHeader article={article}></ArticlePreviewHeader>
-            <Typography>{article.header}</Typography>
-            <Link to={'/article-reading:' + article.id}>
-                <ReadMoreIcon />
-            </Link>
-        </Grid>
+        <Card
+            sx={{
+                minWidth: '80%',
+                maxWidth: '80%',
+                marginTop: '30px',
+                borderRadius: '20px',
+            }}
+            className={cardClassName}
+        >
+            <ButtonBase onClick={routeChange} sx={{minWidth: '100%',
+                maxWidth: '100%'}}>
+                <Grid container direction="column" textAlign="center">
+                    <ArticlePreviewHat article={article} />
+                    <Divider />
+                    <Typography sx={headerStyle}>{article.title}</Typography>
+                    <img
+                        id="preview-image"
+                        alt="Preview image"
+                        src={article.previewImage}
+                    />
+                </Grid>
+            </ButtonBase>
+        </Card>
     )
 }
 

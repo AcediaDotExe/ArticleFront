@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 import Layout from '../../components/layout/layout/Layout'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
+import ArticlePreviewList from '../../components/article/ArticlePreviewLists/ArticlePreviewList'
 
-const AllArticles = () => {
-    const a = useTypedSelector((state) => state.user.avatar)
+const AllArticles: FC = () => {
     return (
         <Layout>
-            <p> AllArticle {a}</p>
+            <ArticlePreviewList />
         </Layout>
     )
 }
