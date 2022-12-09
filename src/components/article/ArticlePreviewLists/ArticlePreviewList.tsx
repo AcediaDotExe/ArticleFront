@@ -5,7 +5,6 @@ import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
 import { Grid } from '@mui/material'
 import { getRequest } from '../../../utils/fetch/basicFetch'
-import { UserState } from '../../../types/user'
 
 interface IArticlePreviewList {
     anchor: string
@@ -22,7 +21,7 @@ const ArticlePreviewList: FC<IArticlePreviewList> = ({ anchor }) => {
 
     useMemo(() => {
         if (anchor === 'main-page') {
-            void getRequest<ArticlesState>('articles/').then((data) => {
+            void getRequest<ArticlesState>('articles').then((data) => {
                 dispatch({
                     type: ArticlesActionType.SET_ARTICLES,
                     payload: data.articles,
