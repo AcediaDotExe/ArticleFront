@@ -34,11 +34,18 @@
     margin-top: -1000px;
     margin-left: -1000px;
     transition: opacity 0.3s linear;
-    opacity: 0;
+    opacity: 0.5;
     border-radius: 50%;
-    background: linear-gradient(90deg, rgba(63,81,181,1) 29%, rgba(233,30,99,1) 71%) no-repeat 0 0;
-    animation: rotate 3s linear infinite;
+    animation: rotate 4s linear infinite;
 }
+
+.conic-gradient-light{
+    background: linear-gradient(90deg, rgba(120,121,255,1) 11%, rgba(110,238,237,1) 91%) no-repeat 0 0;
+}
+.conic-gradient-dark{
+    background: linear-gradient(90deg, rgba(63,81,181,1) 11%, rgba(233,30,99,1) 91%) no-repeat 0 0;
+}
+
 .conic:hover > .conic-gradient {
     opacity: 1;
 }

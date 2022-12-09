@@ -27,6 +27,10 @@ const ArticlePreview: FC<IArticlePreview> = ({ article }) => {
         ? 'conic conic-dark zoom appearance'
         : 'conic conic-light zoom'
 
+    const conicClassName = 'conic-gradient ' + (isDarkMode
+        ? 'conic-gradient-dark'
+        : 'conic-gradient-light')
+
     const headerStyle = {
         fontSize: '25px',
         textAlign: 'center',
@@ -50,7 +54,7 @@ const ArticlePreview: FC<IArticlePreview> = ({ article }) => {
             }}
             className={cardClassName}
         >
-            <div className="conic-gradient"></div>
+            <div className={conicClassName}></div>
             <ButtonBase
                 onClick={routeChange}
                 sx={{ minWidth: '100%', maxWidth: '100%' }}
