@@ -3,18 +3,20 @@ import ArticlePreview, { IArticle } from './ArticlePreview/ArticlePreview'
 import { getToken } from '../../../utils/queryParams/token'
 import { serverUrl } from '../../../assets/urls/urls'
 import { UserState } from '../../../types/user'
-import { ArticlesActionType, IArticleList } from '../../../types/articles'
+import {ArticlesActionType, ArticlesState, IArticleList} from '../../../types/articles'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
+import {Grid} from '@mui/material';
 
 const ArticlePreviewList: FC = () => {
-    const articles: IArticle[] = useTypedSelector(
+    const articlesList: IArticle[] = useTypedSelector(
         (state) => state.articles.articles
     )
     const dispatch = useDispatch()
 
     useMemo(() => {
         void getArticles().then((articles) => {
+            console.log(articles)
             dispatch({
                 type: ArticlesActionType.SET_ARTICLES,
                 payload: articles,
@@ -22,7 +24,26 @@ const ArticlePreviewList: FC = () => {
         })
     }, [])
 
-    async function getArticles(): Promise<IArticleList> {
+
+    return (
+        <Grid
+            container
+            direction="row"
+            justifyContent="center"
+        >
+            {articlesList != null ?
+                articlesList.map((article) => (
+                <ArticlePreview
+                    article={article}
+                    key={article.id}
+                    id={article.id}
+                />
+            )): null
+            }
+        </Grid>
+    )
+
+    async function getArticles(): Promise<ArticlesState> {
         const bearerToken = getToken()
         return await fetch(serverUrl + 'articles', {
             method: 'GET',
@@ -42,18 +63,6 @@ const ArticlePreviewList: FC = () => {
             })
             .then()
     }
-
-    return (
-        <div>
-            {articles.map((article) => (
-                <ArticlePreview
-                    article={article}
-                    key={article.id}
-                    id={article.id}
-                />
-            ))}
-        </div>
-    )
 }
 
 export default ArticlePreviewList

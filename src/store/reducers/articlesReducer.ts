@@ -2,19 +2,19 @@ import { UserAction, UserActionType, UserState } from '../../types/user'
 import { setUser } from '../../utils/userAuth/user'
 import {
     ArticlesAction,
-    ArticlesActionType,
-    IArticle,
+    ArticlesActionType, ArticlesState,
+    ArticleState,
     IArticleList,
 } from '../../types/articles'
 
-const initialState: IArticleList = {
+const initialState: ArticlesState = {
     articles: [],
 }
 
 export const articlesReducer = (
     state = initialState,
     action: ArticlesAction
-): IArticleList => {
+): ArticlesState => {
     switch (action.type) {
         case ArticlesActionType.SET_ARTICLES: {
             return action.payload

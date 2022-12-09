@@ -1,14 +1,8 @@
-export interface ArticleEditorType {
-    title: string
-    previewImage: string
-    content: string
+export interface ArticlesState{
+    articles: ArticleState[]
 }
 
-export interface IArticleList {
-    articles: IArticle[]
-}
-
-export interface IArticle {
+export interface ArticleState {
     id: number
     title: string
     creatorId: string
@@ -17,16 +11,11 @@ export interface IArticle {
     previewImage: string
 }
 
-export interface IArticlePreview {
-    id: number
-    article: IArticle
-}
-
 export enum ArticlesActionType {
     SET_ARTICLES = 'SET_ARTICLES',
 }
 
 export interface ArticlesAction {
     type: ArticlesActionType
-    payload: IArticleList
+    payload: ArticlesState
 }
