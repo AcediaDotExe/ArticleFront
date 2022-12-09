@@ -11,7 +11,11 @@ const AuthWrapper: FC<OnlyChildProps> = ({ children }) => {
     useEffect(() => {
         void setUser().then((data) => {
             dispatch({ type: UserActionType.SET_USER, payload: data })
-            // window.history.replaceState({}, document.title, basicUrl + refineURL());
+            window.history.replaceState(
+                {},
+                document.title,
+                basicUrl + refineURL()
+            )
         })
     })
 

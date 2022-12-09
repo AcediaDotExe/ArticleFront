@@ -1,26 +1,41 @@
-import React, { FC } from 'react'
+import React, { FC, useMemo } from 'react'
 import { Box, Grid, Typography } from '@mui/material'
 import { IArticle } from './ArticlePreview'
 import UserAvatar from '../../../navigation/NavBar/user/UserAvatar'
-import { UserState } from '../../../../types/user'
+import { UserActionType, UserState } from '../../../../types/user'
 import './articlePreview.css'
+import { ArticlesState, ArticleState } from '../../../../types/articles'
+import { getToken } from '../../../../utils/queryParams/token'
+import { serverUrl } from '../../../../assets/urls/urls'
+import { getRequest } from '../../../../utils/fetch/basicFetch'
+import { useDispatch } from 'react-redux'
+import { useTypedSelector } from '../../../../hooks/useTypedSelector'
 
 interface IArticlePreviewHeader {
-    article: number
+    article: ArticleState
 }
 
-const ArticlePreviewHat: FC<IArticlePreviewHeader> = (article) => {
-    const author: UserState = {
-        id: '0',
-        username: 'Username Usersurname',
-        avatar: 'https://pbs.twimg.com/profile_images/1082020318523412480/E87sUSUc_400x400.jpg',
-    }
+const ArticlePreviewHat: FC<IArticlePreviewHeader> = ({ article }) => {
+    const author: UserState = useTypedSelector((state) => state.user)
+
+    const dispatch = useDispatch()
+    useMemo(() => {
+        getRequest<UserState>('users/' + article.creatorId)
+            .then((data) => {
+                dispatch({ type: UserActionType.SET_USER, payload: data })
+            })
+            .catch(function (error: any) {
+                console.warn(error)
+            })
+    }, [])
 
     const typographyStyle = {
-        fontFamily: 'Sono',
+        fontFamily: 'OpenSans',
         marginTop: '12px',
         marginLeft: '4px',
     }
+
+    const createdDate = new Date(article.created)
 
     return (
         <Grid
@@ -47,7 +62,9 @@ const ArticlePreviewHat: FC<IArticlePreviewHeader> = (article) => {
                     </Typography>
                 </Grid>
             </Box>
-            <Typography sx={typographyStyle}>11.12.2002 12:34:12 AM</Typography>
+            <Typography sx={typographyStyle}>
+                {createdDate.toDateString()}
+            </Typography>
         </Grid>
     )
 }

@@ -1,11 +1,12 @@
 export interface ArticlesState {
-    articles: ArticleState[],
-    article: ArticleState | undefined,
+    articles: ArticleState[]
+    article: ArticleState | undefined
 }
 
 export interface ArticleState {
     id: number
     title: string
+    content?: string
     creatorId: string
     updated: number
     created: string
