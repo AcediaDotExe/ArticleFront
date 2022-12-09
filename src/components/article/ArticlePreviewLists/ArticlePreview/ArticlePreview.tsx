@@ -50,6 +50,7 @@ const ArticlePreview: FC<IArticlePreview> = ({ article }) => {
             }}
             className={cardClassName}
         >
+            <div className="conic-gradient"></div>
             <ButtonBase
                 onClick={routeChange}
                 sx={{ minWidth: '100%', maxWidth: '100%' }}
