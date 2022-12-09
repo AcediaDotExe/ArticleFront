@@ -1,5 +1,6 @@
-export interface ArticlesState{
-    articles: ArticleState[]
+export interface ArticlesState {
+    articles: ArticleState[],
+    article: ArticleState | undefined,
 }
 
 export interface ArticleState {
@@ -13,9 +14,10 @@ export interface ArticleState {
 
 export enum ArticlesActionType {
     SET_ARTICLES = 'SET_ARTICLES',
+    SET_ARTICLE = 'SET_ARTICLE',
 }
 
 export interface ArticlesAction {
     type: ArticlesActionType
-    payload: ArticlesState
+    payload: ArticleState[] | ArticleState
 }

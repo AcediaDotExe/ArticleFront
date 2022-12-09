@@ -14,21 +14,22 @@ import { BrowserRouter, HashRouter } from 'react-router-dom'
 const Routing: FC = () => {
     return (
         <HashRouter>
+        {/* <BrowserRouter basename="/article-front/"> */}
             <Routes>
                 <Route path="/" element={<AllArticles />} />
                 <Route path="/creating" element={<Creating />} />
-                <Route path="/my-history" element={<MyHistory />} />
+                <Route path="/history" element={<MyHistory />} />
                 <Route path="/my-articles" element={<MyArticles />} />
                 <Route
-                    path="/article-edit:articleId"
+                    path="/edit:articleId"
                     element={<ArticleEdit />}
                 />
                 <Route
-                    path="/article-reading:articleId"
+                    path="/reading/:currentId"
                     element={<ArticleReading />}
                 />
                 <Route
-                    path="/article-statistics:articleId"
+                    path="/statistics:articleId"
                     element={<ArticleStatistics />}
                 />
             </Routes>

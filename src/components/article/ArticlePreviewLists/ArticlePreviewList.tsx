@@ -3,10 +3,14 @@ import ArticlePreview, { IArticle } from './ArticlePreview/ArticlePreview'
 import { getToken } from '../../../utils/queryParams/token'
 import { serverUrl } from '../../../assets/urls/urls'
 import { UserState } from '../../../types/user'
-import {ArticlesActionType, ArticlesState, IArticleList} from '../../../types/articles'
+import {
+    ArticlesActionType,
+    ArticlesState,
+    IArticleList,
+} from '../../../types/articles'
 import { useTypedSelector } from '../../../hooks/useTypedSelector'
 import { useDispatch } from 'react-redux'
-import {Grid} from '@mui/material';
+import { Grid } from '@mui/material'
 
 const ArticlePreviewList: FC = () => {
     const articlesList: IArticle[] = useTypedSelector(
@@ -15,43 +19,37 @@ const ArticlePreviewList: FC = () => {
     const dispatch = useDispatch()
 
     useMemo(() => {
-        void getArticles().then((articles) => {
-            console.log(articles)
+        void getArticles().then((data) => {
             dispatch({
                 type: ArticlesActionType.SET_ARTICLES,
-                payload: articles,
+                payload: data.articles,
             })
         })
     }, [])
 
-
     return (
-        <Grid
-            container
-            direction="row"
-            justifyContent="center"
-        >
-            {articlesList != null ?
-                articlesList.map((article) => (
-                <ArticlePreview
-                    article={article}
-                    key={article.id}
-                    id={article.id}
-                />
-            )): null
-            }
+        <Grid container direction="row" justifyContent="center">
+            {articlesList != null
+                ? articlesList.map((article) => (
+                      <ArticlePreview
+                          article={article}
+                          key={article.id}
+                          id={article.id}
+                      />
+                  ))
+                : null}
         </Grid>
     )
 
     async function getArticles(): Promise<ArticlesState> {
-        const bearerToken = getToken()
+        // const bearerToken = getToken()
         return await fetch(serverUrl + 'articles', {
             method: 'GET',
             mode: 'cors',
             headers: new Headers({
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-                Authorization: 'Bearer ' + bearerToken,
+                // Authorization: 'Bearer ' + bearerToken,
             }),
         })
             .then(async (response) => await response.json())

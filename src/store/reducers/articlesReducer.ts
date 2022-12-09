@@ -1,14 +1,8 @@
-import { UserAction, UserActionType, UserState } from '../../types/user'
-import { setUser } from '../../utils/userAuth/user'
-import {
-    ArticlesAction,
-    ArticlesActionType, ArticlesState,
-    ArticleState,
-    IArticleList,
-} from '../../types/articles'
+import {ArticlesAction, ArticlesActionType, ArticlesState, ArticleState,} from '../../types/articles'
 
 const initialState: ArticlesState = {
     articles: [],
+    article: undefined,
 }
 
 export const articlesReducer = (
@@ -16,9 +10,10 @@ export const articlesReducer = (
     action: ArticlesAction
 ): ArticlesState => {
     switch (action.type) {
-        case ArticlesActionType.SET_ARTICLES: {
-            return action.payload
-        }
+        case ArticlesActionType.SET_ARTICLES:
+            return {...state, articles: action.payload as ArticleState[]}
+        case ArticlesActionType.SET_ARTICLE:
+            return {...state, article: action.payload as ArticleState}
         default:
             return state
     }

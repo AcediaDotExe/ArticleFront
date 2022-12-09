@@ -1,0 +1,90 @@
+#author-avatar {
+    max-width: 30px;
+    max-height: 30px;
+    border-radius: 30px;
+}
+
+#preview-image {
+    width: 100%;
+    height: 500px;
+    object-fit: fill;
+    border-radius: 7px;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+.conic:hover {
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.conic:hover::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -60%;
+    width: 1500px;
+    height: 1500px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    animation: rotate 3s linear infinite;
+}
+
+.conic-dark:hover::before {
+    background: linear-gradient(90deg, #3f51b5, transparent) #e91e63;
+}
+
+.conic-light:hover::before {
+    background: linear-gradient(90deg, #7879ff, transparent) #6eeeed;
+}
+
+.conic-dark:hover::after {
+    /*background: #1E1E1E;*/
+}
+
+.conic-light:hover::after {
+    /*background: #FFFFFF;*/
+}
+
+.conic:hover::after {
+    content: '';
+    position: absolute;
+    border-radius: 5px;
+}
+
+@keyframes opacityChange {
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*.gradient-hover-effect {*/
+/*    background: linear-gradient(90deg, #3f51b5, transparent) #2196f3;*/
+/*    color: #fff;*/
+/*    place-content: center;*/
+/*}*/
+/*.gradient-hover-effect:hover, .gradient-hover-effect:focus {*/
+/*    background: linear-gradient(90deg, #3f51b5, transparent) #e91e63;*/
+/*    color: #fff;*/
+/*}*/
+
+.zoom {
+    transition: transform 0.1s;
+}
+
+.zoom:hover {
+    transform: scale(
+        1.05
+    ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    padding: 6px;
+}
