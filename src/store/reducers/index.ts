@@ -5,6 +5,7 @@ import { editorReducer } from './editorReducer'
 import { authReducer } from './authReducer'
 import { userReducer } from './userReducer'
 import { articlesReducer } from './articlesReducer'
+import { usersReducer } from './usersReducer';
 
 export const rootReducer = combineReducers({
     sidebar: uiReducer,
@@ -14,6 +15,7 @@ export const rootReducer = combineReducers({
     auth: authReducer,
     user: userReducer,
     articles: articlesReducer,
+    users: usersReducer,
 })
 
 export type RootState = ReturnType<typeof rootReducer>

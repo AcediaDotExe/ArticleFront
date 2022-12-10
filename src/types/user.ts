@@ -13,6 +13,15 @@ export enum UserActionType {
     AVATAR = 'AVATAR',
 }
 
+export interface UsersAction {
+    type: UsersActionType
+    payload: UserState
+}
+
+export enum UsersActionType {
+    ADD_USER = 'ADD_USER',
+}
+
 export interface UserAction {
     type: UserActionType
     payload: UserState

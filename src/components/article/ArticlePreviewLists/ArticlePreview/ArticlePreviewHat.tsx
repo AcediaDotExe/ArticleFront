@@ -1,12 +1,8 @@
 import React, { FC, useMemo } from 'react'
 import { Box, Grid, Typography } from '@mui/material'
-import { IArticle } from './ArticlePreview'
-import UserAvatar from '../../../navigation/NavBar/user/UserAvatar'
-import { UserActionType, UserState } from '../../../../types/user'
+import { UsersActionType, UserState } from '../../../../types/user'
 import './articlePreview.css'
-import { ArticlesState, ArticleState } from '../../../../types/articles'
-import { getToken } from '../../../../utils/queryParams/token'
-import { serverUrl } from '../../../../assets/urls/urls'
+import { ArticleState } from '../../../../types/articles'
 import { getRequest } from '../../../../utils/fetch/basicFetch'
 import { useDispatch } from 'react-redux'
 import { useTypedSelector } from '../../../../hooks/useTypedSelector'
@@ -16,13 +12,13 @@ interface IArticlePreviewHeader {
 }
 
 const ArticlePreviewHat: FC<IArticlePreviewHeader> = ({ article }) => {
-    const author: UserState = useTypedSelector((state) => state.user)
+    const author: UserState | undefined = useTypedSelector((state) => state.users.get(article.creatorId))
 
     const dispatch = useDispatch()
     useMemo(() => {
         getRequest<UserState>('users/' + article.creatorId)
             .then((data) => {
-                dispatch({ type: UserActionType.SET_USER, payload: data })
+                dispatch({ type: UsersActionType.ADD_USER, payload: data })
             })
             .catch(function (error: any) {
                 console.warn(error)
@@ -56,9 +52,9 @@ const ArticlePreviewHat: FC<IArticlePreviewHeader> = ({ article }) => {
                     justifyContent="flex-start"
                     textAlign="center"
                 >
-                    <img id="author-avatar" alt="Avatar" src={author.avatar} />
+                    <img id="author-avatar" alt="Avatar" src={author?.avatar} />
                     <Typography sx={typographyStyle}>
-                        {author.username}
+                        {author?.username}
                     </Typography>
                 </Grid>
             </Box>
