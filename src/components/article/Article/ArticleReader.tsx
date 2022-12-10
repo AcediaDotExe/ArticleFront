@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import { ArticleState } from '../../../types/articles'
 import { Divider, Grid, Typography } from '@mui/material'
 import ArticlePreviewHat from '../ArticlePreviewLists/ArticlePreview/ArticlePreviewHat'
-import { Diversity1 } from '@mui/icons-material'
 import parse from 'html-react-parser'
 
 interface IArticleReader {
@@ -16,9 +15,10 @@ const ArticleReader: FC<IArticleReader> = ({ article }) => {
         overflowWrap: 'break-word',
     }
 
+
     return (
         <>
-            {article !== undefined ? (
+            {article !== undefined && (
                 <Grid container textAlign="center" direction="column">
                     <ArticlePreviewHat article={article} />
                     <Divider />
@@ -27,11 +27,9 @@ const ArticleReader: FC<IArticleReader> = ({ article }) => {
                     </Typography>
                     <Divider />
                     <Typography sx={typographyStyle}>
-                        {parse(article.content)}
+                        {parse(article.content ?? '')}
                     </Typography>
                 </Grid>
-            ) : (
-                '404 Not Found!'
             )}
         </>
     )

@@ -16,13 +16,15 @@ const ArticlePreviewHat: FC<IArticlePreviewHeader> = ({ article }) => {
 
     const dispatch = useDispatch()
     useMemo(() => {
-        getRequest<UserState>('users/' + article.creatorId)
-            .then((data) => {
-                dispatch({ type: UsersActionType.ADD_USER, payload: data })
-            })
-            .catch(function (error: any) {
-                console.warn(error)
-            })
+        if(author === undefined) {
+            getRequest<UserState>('users/' + article.creatorId)
+              .then((data) => {
+                  dispatch({type: UsersActionType.ADD_USER, payload: data})
+              })
+              .catch(function (error: any) {
+                  console.warn(error)
+              })
+        }
     }, [])
 
     const typographyStyle = {
