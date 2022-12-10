@@ -17,7 +17,7 @@
     left: 0;
 }
 #logo::before {
-    background-color: #ce93d8;
+    background: linear-gradient(90deg, #ce93d8 11%, rgba(233,30,99,1) 91%) no-repeat 0 0;
     height: 2px;
     bottom: 0;
     transform-origin: 100% 50%;
@@ -31,7 +31,9 @@
     transform-origin: 100% 50%;
     transform: translate3d(200%, 0, 0);
     transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
-    color: #ce93d8;
+    background: linear-gradient(90deg, #ce93d8 11%, rgba(233,30,99,1) 91%) no-repeat 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #logo:hover::before {
@@ -70,7 +72,7 @@
     left: 0;
 }
 #light-logo::before {
-    background-color: #6eeeed;
+    background: linear-gradient(90deg, #6eeeed 11%, #8CE68C 91%) no-repeat 0 0;
     height: 2px;
     bottom: 0;
     transform-origin: 100% 50%;
@@ -85,6 +87,10 @@
     transform: translate3d(200%, 0, 0);
     transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
     color: #6eeeed;
+
+    background: linear-gradient(90deg, #6eeeed 11%, #8CE68C 91%) no-repeat 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #light-logo:hover::before {

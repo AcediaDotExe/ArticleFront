@@ -19,7 +19,7 @@ const SidebarAnimation: FC<OnlyChildProps> = ({ children }) => {
     )
     const dispatch = useDispatch()
 
-    function handleDrawerClose() {
+    function handleDrawerClose():void {
         dispatch({ type: UiActionType.CLOSE_SIDEBAR })
     }
 
