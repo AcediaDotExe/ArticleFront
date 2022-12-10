@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import {
     AppBar,
@@ -8,7 +8,7 @@ import {
     Grid,
     styled,
     Toolbar,
-    Typography,
+    Typography, useMediaQuery, useTheme,
 } from '@mui/material'
 import NavLeftPart from './NavLeftPart'
 import NavRightPart from './NavRightPart'
@@ -23,6 +23,10 @@ const NavBar = () => {
     interface StyledAppBarProps extends AppBarProps {
         open?: boolean
     }
+
+
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
     const StyledAppBar = styled(AppBar, {
         shouldForwardProp: (prop) => prop !== 'open',
@@ -41,26 +45,47 @@ const NavBar = () => {
         }),
     }))
 
+    useEffect(() => {
+        console.log(matches)
+    })
+
     return (
         <>
             <CssBaseline />
-            <StyledAppBar
-                position="fixed"
-                color={'primary'}
-                open={isSidebarOpen}
-            >
-                <Toolbar>
-                    <Grid
-                        container
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                    >
-                        <NavLeftPart />
-                        <NavRightPart />
-                    </Grid>
-                </Toolbar>
-            </StyledAppBar>
+            {matches ?
+                <StyledAppBar
+                    position="fixed"
+                    color={'primary'}
+                    open={isSidebarOpen}
+                >
+                    <Toolbar>
+                        <Grid
+                            container
+                            direction="row"
+                            justifyContent="space-between"
+                            alignItems="center"
+                        >
+                            <NavLeftPart />
+                            <NavRightPart />
+                        </Grid>
+                    </Toolbar>
+                </StyledAppBar>
+                :
+                <AppBar>
+                    <Toolbar>
+                        <Grid
+                            container
+                            direction="row"
+                            justifyContent="space-between"
+                            alignItems="center"
+                        >
+                            <NavLeftPart />
+                            <NavRightPart />
+                        </Grid>
+                    </Toolbar>
+                </AppBar>
+            }
+
         </>
     )
 }
