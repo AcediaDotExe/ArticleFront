@@ -28,13 +28,13 @@
     position: absolute;
     z-index: -2;
     left: 50%;
-    top: 0%;
+    top: 0;
     width: 2000px;
     height: 2000px;
     margin-top: -1000px;
     margin-left: -1000px;
     transition: opacity 0.3s linear;
-    opacity: 0.5;
+    opacity: 0;
     border-radius: 50%;
     animation: rotate 4s linear infinite;
 }
