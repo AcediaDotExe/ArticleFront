@@ -14,18 +14,16 @@ interface IArticlePreviewHeader {
 const ArticlePreviewHat: FC<IArticlePreviewHeader> = ({ article }) => {
     const author: UserState | undefined = useTypedSelector((state) => state.users.get(article.creatorId))
 
-    if(author === undefined) {
-        const dispatch = useDispatch()
-        useMemo(() => {
-            getRequest<UserState>('users/' + article.creatorId)
-              .then((data) => {
-                  dispatch({type: UsersActionType.ADD_USER, payload: data})
-              })
-              .catch(function (error: any) {
-                  console.warn(error)
-              })
-        }, [])
-    }
+    const dispatch = useDispatch()
+    useMemo(() => {
+        getRequest<UserState>('users/' + article.creatorId)
+            .then((data) => {
+                dispatch({ type: UsersActionType.ADD_USER, payload: data })
+            })
+            .catch(function (error: any) {
+                console.warn(error)
+            })
+    }, [])
 
     const typographyStyle = {
         fontFamily: 'OpenSans',
