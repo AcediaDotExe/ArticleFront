@@ -4,8 +4,10 @@ import { getToken } from '../../../utils/queryParams/token'
 import { serverUrl } from '../../../assets/urls/urls'
 import { EditorActionType, EditorState } from '../../../types/editor'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router';
 
 const SubmitButton: FC<EditorState> = (article) => {
+    const navigate = useNavigate()
     async function submitArticle() {
         if (isArticleValid(article)) {
             const bearerToken = String(getToken())
@@ -22,22 +24,23 @@ const SubmitButton: FC<EditorState> = (article) => {
             const content = await rawResponse.json()
 
             if (content.id !== undefined) {
-                dispatch({ type: EditorActionType.SET_TITLE, payload: '' })
-                dispatch({
-                    type: EditorActionType.SET_PREVIEW_IMAGE,
-                    payload: '',
-                })
-                dispatch({ type: EditorActionType.SET_CONTENT, payload: '' })
-                dispatch({
-                    type: EditorActionType.SET_SUBMIT_CALLBACK,
-                    payload: 'Saved!',
-                })
-                setTimeout(() => {
-                    dispatch({
-                        type: EditorActionType.SET_SUBMIT_CALLBACK,
-                        payload: '',
-                    })
-                }, 5000)
+                navigate('/reading/' + String(content.id))
+                // dispatch({ type: EditorActionType.SET_TITLE, payload: '' })
+                // dispatch({
+                //     type: EditorActionType.SET_PREVIEW_IMAGE,
+                //     payload: '',
+                // })
+                // dispatch({ type: EditorActionType.SET_CONTENT, payload: '' })
+                // dispatch({
+                //     type: EditorActionType.SET_SUBMIT_CALLBACK,
+                //     payload: 'Saved!',
+                // })
+                // setTimeout(() => {
+                //     dispatch({
+                //         type: EditorActionType.SET_SUBMIT_CALLBACK,
+                //         payload: '',
+                //     })
+                // }, 5000)
             } else {
                 dispatch({
                     type: EditorActionType.SET_SUBMIT_CALLBACK,
