@@ -12,7 +12,7 @@ export function getParsedToken(): IToken | null {
 export function getToken(): string | null {
     let token: string | null | undefined = cookies.token
 
-    if (token !== undefined && token !== 'null' && token !== '') {
+    if (token !== undefined && token !== null && token !== 'null' && token !== '') {
         return token
     }
     const urlParams = new URLSearchParams(window.location.search)
