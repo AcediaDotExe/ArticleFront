@@ -6,6 +6,7 @@ import { ArticleState } from '../../../../types/articles'
 import { getRequest } from '../../../../utils/fetch/basicFetch'
 import { useDispatch } from 'react-redux'
 import { useTypedSelector } from '../../../../hooks/useTypedSelector'
+import { toLocalString } from '../../../../utils/date/date';
 
 interface IArticlePreviewHeader {
     article: ArticleState
@@ -61,7 +62,7 @@ const ArticlePreviewHat: FC<IArticlePreviewHeader> = ({ article }) => {
                 </Grid>
             </Box>
             <Typography sx={typographyStyle}>
-                {createdDate.toDateString()}
+                {toLocalString(createdDate)}
             </Typography>
         </Grid>
     )
