@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import '../ArticlePreviewLists/ArticlePreview/articlePreview.css'
 import { ArticleState } from '../../../types/articles'
 import { Divider, Grid, Typography } from '@mui/material'
 import ArticlePreviewHat from '../ArticlePreviewLists/ArticlePreview/ArticlePreviewHat'
@@ -15,7 +16,6 @@ const ArticleReader: FC<IArticleReader> = ({ article }) => {
         overflowWrap: 'break-word',
     }
 
-
     return (
         <>
             {article !== undefined && (
@@ -25,6 +25,17 @@ const ArticleReader: FC<IArticleReader> = ({ article }) => {
                     <Typography sx={typographyStyle} variant="h4">
                         {article.title}
                     </Typography>
+                    <Divider />
+                    <img
+                      style={{
+                          'width': 'auto',
+                          'height': 'auto',
+                          'max-height': '60%',
+                    }}
+                      id="preview-image"
+                      alt="Preview image"
+                      src={article.previewImage}
+                    />
                     <Divider />
                     <Typography sx={typographyStyle}>
                         {parse(article.content ?? '')}
