@@ -14,6 +14,7 @@ const ArticleReader: FC<IArticleReader> = ({ article }) => {
         fontFamily: 'Sono',
         maxWidth: '100%',
         overflowWrap: 'break-word',
+        textAlign: 'left',
     }
 
     return (
@@ -31,6 +32,7 @@ const ArticleReader: FC<IArticleReader> = ({ article }) => {
                           'width': 'auto',
                           'height': 'auto',
                           'max-height': '60%',
+                          'max-width': '100%',
                     }}
                       id="preview-image"
                       alt="Preview image"
