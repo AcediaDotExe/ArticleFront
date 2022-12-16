@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo } from 'react'
+import React, { FC } from 'react'
 import { Route, Routes } from 'react-router'
 import {
     AllArticles,
@@ -9,12 +9,12 @@ import {
     MyArticles,
     MyHistory,
 } from './index'
-import { BrowserRouter, HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 const Routing: FC = () => {
     return (
-        <HashRouter>
-            {/* <BrowserRouter basename="/article-front/"> */}
+        // <HashRouter>
+            <BrowserRouter basename="/article-front/">
             <Routes>
                 <Route path="/" element={<AllArticles />} />
                 <Route path="/creating" element={<Creating />} />
@@ -30,7 +30,8 @@ const Routing: FC = () => {
                     element={<ArticleStatistics />}
                 />
             </Routes>
-        </HashRouter>
+            </BrowserRouter>
+        // </HashRouter>
     )
 }
 
