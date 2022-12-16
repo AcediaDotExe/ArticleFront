@@ -14,6 +14,9 @@ const config: webpack.Configuration = {
     },
     devServer: {
         port: 3000,
+        historyApiFallback: {
+            index: basicUrl,
+        },
     },
     target: 'web',
     resolve: {
@@ -65,7 +68,7 @@ const config: webpack.Configuration = {
         ],
     },
     output: {
-        filename: '[name].[fullhash:8].bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: basicUrl,
     },

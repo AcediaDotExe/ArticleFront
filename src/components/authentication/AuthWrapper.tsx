@@ -11,18 +11,18 @@ const AuthWrapper: FC<OnlyChildProps> = ({ children }) => {
     useEffect(() => {
         void setUser().then((data) => {
             dispatch({ type: UserActionType.SET_USER, payload: data })
+            const newUrl = refineURL()
             window.history.replaceState(
                 {},
                 document.title,
-                basicUrl + refineURL()
+              newUrl
             )
         })
     })
 
     function refineURL(): string {
         const currURL = window.location.href
-        const afterDomain = currURL.substring(currURL.lastIndexOf('/') + 1)
-        return afterDomain.split('?')[0]
+        return currURL.split('?')[0]
     }
 
     return <>{children}</>
