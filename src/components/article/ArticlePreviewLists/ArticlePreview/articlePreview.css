@@ -59,3 +59,18 @@
     transform: scale(1.05);
     padding: 6px;
 }
+
+blockquote {
+    padding: 5px 0px;
+    margin: 0;
+}
+
+blockquote p {
+    padding: 15px;
+    background: #eee;
+    border-radius: 5px;
+}
+
+ul, ol {
+    list-style-position: inside;
+}

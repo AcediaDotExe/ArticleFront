@@ -15,6 +15,7 @@ const ArticleReader: FC<IArticleReader> = ({ article }) => {
         maxWidth: '100%',
         overflowWrap: 'break-word',
         textAlign: 'left',
+        padding: '5px 15px',
     }
 
     return (
